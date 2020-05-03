@@ -2,10 +2,54 @@
 
 #banner {
   width: 100%;
+  position: relative;
+  height: 560px;
   img {
     width: 100%;
-    height: 500px;
+    height: 100%;
     object-fit: cover;
     object-position: top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
   }
+  &:before {
+    content: "";
+    height: 100%;
+    background: linear-gradient(0deg, $black 20%, transparent);
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+  }
+  .title {
+    width: 400px;
+    margin: 6em;
+    position: absolute;
+    z-index: 3;
+    h1 {
+      font-size: 36px;
+      color: $white;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: $grey;
+      line-height: 20px;
+    }
+  }
+}
+button {
+  min-width: 160px;
+  height: 48px;
+  background: #ea4c4c;
+  color: white;
+  border: none;
+  margin: 12px;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
 }
