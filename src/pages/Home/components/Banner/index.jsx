@@ -1,6 +1,8 @@
 import React from "react";
+import { FaPlay } from "react-icons/fa";
+import Banner from "@/assets/banner.png";
+import Button from "@/components/Button";
 import "./styles.scss";
-import Banner from "./../../../../assets/banner.png";
 
 export default () => {
   return (
@@ -13,8 +15,10 @@ export default () => {
           combate e ressuscitado como o super-humano Bloodshot da empresa RST.
         </p>
         <div className="row">
-        <button>ingresso</button>
-        <button>trailer</button>
+          <Button type="primary">ingresso</Button>
+          <Button type="outline">
+            <FaPlay /> trailer
+          </Button>
         </div>
       </div>
       <img src={Banner} alt="" />

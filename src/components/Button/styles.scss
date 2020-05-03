@@ -1,0 +1,43 @@
+@import "@/styles/";
+
+#button {
+  min-width: 160px;
+  height: 48px;
+  border: none;
+  margin: 12px 12px 0 0;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  &:last-child {
+    margin-right: 0;
+  }
+  &.primary {
+    background: $primary;
+    color: $white;
+    &:hover {
+      color: $white;
+      background: darken($primary, 3%);
+    }
+    &:active {
+      background: darken($primary, 8%);
+    }
+  }
+  &.outline {
+    background: transparent;
+    color: $white;
+    border: 1px solid $white;
+    &:hover {
+      color: $white;
+      background: rgba($white, 0.05);
+    }
+    &:active {
+      background: rgba($white, 0.07);
+    }
+  }
+  svg {
+    position: relative;
+    top: 1px;
+    margin-right: .5em;
+  }
+}

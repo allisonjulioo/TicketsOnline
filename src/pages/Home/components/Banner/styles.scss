@@ -1,4 +1,4 @@
-@import "./../../../../styles";
+@import "@/styles";
 
 #banner {
   width: 100%;
@@ -37,19 +37,8 @@
     }
     p {
       color: $grey;
+      margin: 0 0 2em;
       line-height: 20px;
     }
   }
-}
-button {
-  min-width: 160px;
-  height: 48px;
-  background: #ea4c4c;
-  color: white;
-  border: none;
-  margin: 12px;
-  border-radius: 0;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
 }

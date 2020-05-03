@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.scss";
-import logo from "./../../assets/logo.png";
+import Button from "@/components/Button";
+import logo from "@/assets/logo.png";
 
 export default () => {
   return (
@@ -9,7 +10,7 @@ export default () => {
         <img src={logo} alt="Bilheteria" />
       </div>
       <div className="user">
-        <span>Allison Julio</span>
+        <Button type="primary">Allison Julio</Button>
       </div>
     </div>
   );
