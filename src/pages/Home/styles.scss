@@ -1,0 +1,9 @@
+@import "./../../styles/";
+
+#home {
+  height: 100%;
+  .row {
+    height: calc(100% - 60px);
+    @include flex;
+  }
+}

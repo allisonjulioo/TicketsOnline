@@ -1,0 +1,19 @@
+@import "./../../styles/";
+
+#header {
+  height: 60px;
+  margin: 0 0 20px;
+  padding-right: 20px;
+  @include flex-center-spaced;
+  background: $primary;
+  .branding {
+    padding-left: 20px;
+    background: darken($primary, 4%);
+    height: 100%;
+    @include flex-center;
+    min-width: 240px;
+    img {
+      height: 48px;
+    }
+  }
+}
