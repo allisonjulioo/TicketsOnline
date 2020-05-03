@@ -6,4 +6,7 @@
     height: calc(100% - 60px);
     @include flex;
   }
+  .container {
+    width: 100%;
+  }
 }
