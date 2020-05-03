@@ -37,8 +37,11 @@
     }
     p {
       color: $grey;
-      margin: 0 0 2em;
+      margin: 0 0 .5em;
       line-height: 20px;
+    }
+    .rating {
+      margin: 0 0 2em;
     }
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaStar } from "react-icons/fa";
 import Banner from "@/assets/banner.png";
 import Button from "@/components/Button";
 import "./styles.scss";
@@ -14,6 +14,11 @@ export default () => {
           "Bloodshot" na pele de Ray Garrison, um soldado recentemente morto em
           combate e ressuscitado como o super-humano Bloodshot da empresa RST.
         </p>
+        <div className="rating">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <FaStar key={star} color="yellow" />
+          ))}
+        </div>
         <div className="row">
           <Button type="primary">ingresso</Button>
           <Button type="outline">
