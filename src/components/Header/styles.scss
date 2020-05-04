@@ -30,8 +30,9 @@
     z-index: +10;
     width: 100%;
     &.scrolled {
-      transition: all ease .4s;
-      background: darken($black, 4%);
+      transition: all ease 0.4s;
+      background: $black;
+      border-bottom: 1px solid rgba($grey, 0.1);
     }
     .branding {
       min-width: 20px;

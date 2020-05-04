@@ -2,6 +2,7 @@
   "name": "bilheteria-online-frontend",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@craco/craco": "^5.6.4",
     "@testing-library/jest-dom": "^4.2.4",
