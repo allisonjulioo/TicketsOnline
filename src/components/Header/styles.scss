@@ -24,10 +24,18 @@
   @media (max-width: 981px) {
     height: 52px;
     padding-right: 0;
-    background: $black;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    z-index: +10;
+    width: 100%;
+    &.scrolled {
+      transition: all ease .4s;
+      background: darken($black, 4%);
+    }
     .branding {
       min-width: 20px;
-      background: $black;
+      background: transparent;
       img {
         height: 28px;
       }
@@ -46,7 +54,7 @@
         svg {
           display: inline;
           margin: 0;
-          fill: $grey !important;
+          fill: lighten($grey, 14%) !important;
         }
       }
     }

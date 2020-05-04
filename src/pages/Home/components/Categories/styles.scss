@@ -1,0 +1,9 @@
+@import "@/styles";
+#categories {
+  margin: 0 -1em;
+  padding: 0 0.7em 2em;
+  background: lighten($black, 4%);
+  &.container {
+    padding: 1em;
+  }
+}

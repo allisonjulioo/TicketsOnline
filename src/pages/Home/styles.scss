@@ -1,2 +1,14 @@
 @import "@/styles/";
 
+#home {
+  .container {
+    padding: 1em;
+  }
+  .title {
+    color: $grey;
+    font-size: 12px;
+    margin-bottom: 1em;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+}

@@ -8,3 +8,15 @@
 .container {
   width: 100%;
 }
+.mb {
+  display: inline;
+  @media (max-width: 981px) {
+    display: none;
+  }
+}
+.dt {
+  display: none;
+  @media (max-width: 981px) {
+    display: inline;
+  }
+}
