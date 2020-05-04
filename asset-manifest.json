@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/bilheteria-online-frontend/static/css/main.7f0b5aab.chunk.css",
-    "main.js": "/bilheteria-online-frontend/static/js/main.e392f62e.chunk.js",
-    "main.js.map": "/bilheteria-online-frontend/static/js/main.e392f62e.chunk.js.map",
+    "main.css": "/bilheteria-online-frontend/static/css/main.6acbb684.chunk.css",
+    "main.js": "/bilheteria-online-frontend/static/js/main.9a04a87f.chunk.js",
+    "main.js.map": "/bilheteria-online-frontend/static/js/main.9a04a87f.chunk.js.map",
     "runtime-main.js": "/bilheteria-online-frontend/static/js/runtime-main.404ee5c2.js",
     "runtime-main.js.map": "/bilheteria-online-frontend/static/js/runtime-main.404ee5c2.js.map",
-    "static/js/2.2d2f33f3.chunk.js": "/bilheteria-online-frontend/static/js/2.2d2f33f3.chunk.js",
-    "static/js/2.2d2f33f3.chunk.js.map": "/bilheteria-online-frontend/static/js/2.2d2f33f3.chunk.js.map",
+    "static/js/2.63edf445.chunk.js": "/bilheteria-online-frontend/static/js/2.63edf445.chunk.js",
+    "static/js/2.63edf445.chunk.js.map": "/bilheteria-online-frontend/static/js/2.63edf445.chunk.js.map",
     "index.html": "/bilheteria-online-frontend/index.html",
-    "precache-manifest.83e263143f8efef7f8dffc0d613eead4.js": "/bilheteria-online-frontend/precache-manifest.83e263143f8efef7f8dffc0d613eead4.js",
+    "precache-manifest.093aaba27541cf3069f9ec7c3b2b73f3.js": "/bilheteria-online-frontend/precache-manifest.093aaba27541cf3069f9ec7c3b2b73f3.js",
     "service-worker.js": "/bilheteria-online-frontend/service-worker.js",
-    "static/css/main.7f0b5aab.chunk.css.map": "/bilheteria-online-frontend/static/css/main.7f0b5aab.chunk.css.map",
-    "static/js/2.2d2f33f3.chunk.js.LICENSE.txt": "/bilheteria-online-frontend/static/js/2.2d2f33f3.chunk.js.LICENSE.txt",
+    "static/css/main.6acbb684.chunk.css.map": "/bilheteria-online-frontend/static/css/main.6acbb684.chunk.css.map",
+    "static/js/2.63edf445.chunk.js.LICENSE.txt": "/bilheteria-online-frontend/static/js/2.63edf445.chunk.js.LICENSE.txt",
     "static/media/banner.png": "/bilheteria-online-frontend/static/media/banner.e6518290.png",
     "static/media/image.jpg": "/bilheteria-online-frontend/static/media/image.6340f629.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.404ee5c2.js",
-    "static/js/2.2d2f33f3.chunk.js",
-    "static/css/main.7f0b5aab.chunk.css",
-    "static/js/main.e392f62e.chunk.js"
+    "static/js/2.63edf445.chunk.js",
+    "static/css/main.6acbb684.chunk.css",
+    "static/js/main.9a04a87f.chunk.js"
   ]
 }
