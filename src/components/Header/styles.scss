@@ -20,10 +20,14 @@
   }
   @media (max-width: 981px) {
     height: 52px;
+    padding-right: 0;
     background: $black;
     .branding {
       min-width: 20px;
       background: $black;
+      img {
+        height: 28px;
+      }
     }
     button {
       background: $black !important;

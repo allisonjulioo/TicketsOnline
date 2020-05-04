@@ -16,13 +16,16 @@ export default () => {
         </p>
         <div className="rating">
           {[1, 2, 3, 4, 5].map((star) => (
-            <FaStar key={star} color="yellow" />
+            <FaStar key={star} color="#FFC107" />
           ))}
         </div>
+        <Button type="primary mobile">
+          <FaPlay />
+        </Button>
         <div className="row">
           <Button type="primary">ingresso</Button>
-          <Button type="outline">
-            <FaPlay /> trailer
+          <Button type="outline mobile">
+            <FaPlay /> <span>trailer</span>
           </Button>
         </div>
       </div>
