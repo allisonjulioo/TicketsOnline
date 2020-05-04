@@ -19,6 +19,7 @@ export default () => {
           const icon = React.createElement(FontAwesome[menu.icon]);
           return (
             <li
+              title={compress ? menu.name : ""}
               key={index}
               onClick={() => {
                 setActive(menu.name);
