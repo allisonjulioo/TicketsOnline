@@ -37,11 +37,15 @@
     }
     p {
       color: $grey;
-      margin: 0 0 .5em;
+      margin: 0 0 0.5em;
       line-height: 20px;
     }
     .rating {
       margin: 0 0 2em;
+    }
+    @media (max-width: 981px) {
+      margin: 3em 1em;
+      width: 100%;
     }
   }
 }

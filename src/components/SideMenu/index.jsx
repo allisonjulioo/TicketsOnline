@@ -13,7 +13,7 @@ export default () => {
     { name: "Assistir depois", icon: "FaBell" },
   ];
   return (
-    <div id="side-menu" className={compress ? "compress" : ""}>
+    <div id="side-menu">
       <ul className="menu">
         {menu.map((menu, index) => {
           const icon = React.createElement(FontAwesome[menu.icon]);

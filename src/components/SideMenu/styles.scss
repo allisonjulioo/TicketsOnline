@@ -61,9 +61,34 @@
     }
   }
   @media (max-width: 981px) {
-    position: absolute;
-    top: 52px;
+    position: fixed;
+    bottom: 0;
     left: 0;
+    width: 100%;
     z-index: +5;
+    height: 48px;
+    .menu {
+      @include flex-center;
+      margin: 0;
+      li {
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        span {
+          font-size: 10px;
+          display: none;
+        }
+        svg {
+          margin: 0 0 7px;
+        }
+        &.active {
+          span {
+            display: block;
+          }
+        }
+      }
+    }
   }
 }
