@@ -1,5 +1,6 @@
 {
   "name": "bilheteria-online-frontend",
+  "description": "Venda de ingressos para cinema online",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
