@@ -66,11 +66,14 @@
     left: 0;
     width: 100%;
     z-index: +5;
-    height: 48px;
+    height: 52px;
     .menu {
       @include flex-center;
       margin: 0;
+      height: 100%;
       li {
+        height: 100%;
+        margin: 0;
         flex: 1;
         flex-direction: column;
         justify-content: center;

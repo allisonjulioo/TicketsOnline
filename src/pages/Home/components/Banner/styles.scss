@@ -48,4 +48,22 @@
       width: 100%;
     }
   }
+  @media (max-width: 981px) {
+    height: 240px;
+    &:before {
+      height: 48%;
+    }
+    .title {
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      h1 {
+        font-size: 20px;
+      }
+      p  {
+        display: none;
+      }
+    }
+  }
 }
