@@ -29,11 +29,26 @@
           min-height: 36px;
         }
         .rating {
-          @include flex-center-spaced;
+          @include flex-center;
         }
       }
       &:active {
         background: darken($black, 4%);
+      }
+      @media (min-width: 981px) {
+        width: 300px;
+        min-width: 300px;
+        figure {
+          img {
+            height: 360px;
+          }
+        }
+        .content {
+          .description,
+          p {
+            font-size: 16px;
+          }
+        }
       }
     }
   }

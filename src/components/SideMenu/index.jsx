@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import * as FontAwesome from "react-icons/fa";
+import logoLight from "@/assets/logo-light.png";
+import favico from "@/assets/movie-tickets.png";
 import "./styles.scss";
 
 export default () => {
@@ -13,13 +15,16 @@ export default () => {
     { name: "Assistir depois", icon: "FaBell" },
   ];
   return (
-    <div id="side-menu">
+    <div id="side-menu" className="compress">
+      <div className="branding">
+        <img src={logoLight} className="dt" alt="Bilheteria" />
+        <img src={favico} className="mb" alt="Bilheteria" />
+      </div>
       <ul className="menu">
         {menu.map((menu, index) => {
           const icon = React.createElement(FontAwesome[menu.icon]);
           return (
             <li
-              title={compress ? menu.name : ""}
               key={index}
               onClick={() => {
                 setActive(menu.name);

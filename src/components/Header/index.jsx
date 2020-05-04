@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import Button from "@/components/Button";
-import logo from "@/assets/logo.png";
 import logoLight from "@/assets/logo-light.png";
 import "./styles.scss";
 
@@ -24,14 +23,13 @@ export default () => {
   return (
     <div id="header" className={scrolled ? "scrolled" : ""}>
       <div className="branding">
-        <img src={logo} alt="Bilheteria" className="mb" />
-        <img src={logoLight} className="dt" alt="Bilheteria" />
+        <img src={logoLight} alt="Bilheteria" />
       </div>
       <div className="user">
         <Button type="primary mobile">
-          <span className="name">Allison Julio</span>
           <FaUser />
         </Button>
+        <span className="mb">Allison</span>
       </div>
     </div>
   );

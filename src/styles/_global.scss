@@ -36,3 +36,9 @@ h2 {
 ul {
   list-style: none;
 }
+.row > .container {
+  margin-left: 48px;
+  @media (max-width: 981px) {
+    margin-left: 0;
+  }
+}

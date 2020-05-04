@@ -3,60 +3,61 @@
 #header {
   height: 60px;
   padding-right: 20px;
-  @include flex-center-spaced;
-  background: $primary;
-  .branding {
-    padding-left: 20px;
-    background: darken($primary, 4%);
-    height: 100%;
-    @include flex-center;
-    min-width: 240px;
-    img {
-      height: 48px;
-    }
+  padding-right: 0;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: +10;
+  width: 100%;
+  @include flex-center;
+  justify-content: flex-end;
+  &.scrolled {
+    transition: all ease 0.4s;
+    background: $black;
+    border-bottom: 1px solid rgba($grey, 0.1);
   }
-  button {
-    margin: 0;
-    svg {
-      display: none;
+  .branding {
+    display: none;
+  }
+
+  .user {
+    margin: 0 20px 0 0 !important;
+    button {
+      width: 36px;
+      height: 36px;
+      min-width: 0;
+      margin-top: 0;
+      border-radius: 50%;
+      background: lighten($black, 4%) !important;
+      .name {
+        display: none;
+      }
+      svg {
+        display: inline;
+        margin: 0;
+        fill: lighten($grey, 14%) !important;
+      }
     }
   }
   @media (max-width: 981px) {
     height: 52px;
-    padding-right: 0;
-    background: transparent;
-    position: fixed;
-    top: 0;
-    z-index: +10;
     width: 100%;
-    &.scrolled {
-      transition: all ease 0.4s;
-      background: $black;
-      border-bottom: 1px solid rgba($grey, 0.1);
+    @include flex-center-spaced;
+
+    .user {
+      margin: 0 0 0 0 !important;
+      button {
+        margin: 0 12px 0 0 !important;
+      }
     }
     .branding {
+      display: inline;
+      padding-left: 20px;
       min-width: 20px;
       background: transparent;
       img {
         height: 28px;
-      }
-    }
-    .user {
-      button {
-        width: 36px;
-        height: 36px;
-        margin-right: 16px;
-        min-width: 0;
-        border-radius: 50%;
-        background: lighten($black, 4%) !important;
-        .name {
-          display: none;
-        }
-        svg {
-          display: inline;
-          margin: 0;
-          fill: lighten($grey, 14%) !important;
-        }
       }
     }
   }
