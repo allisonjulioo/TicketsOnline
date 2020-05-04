@@ -17,6 +17,9 @@
   }
   button {
     margin: 0;
+    svg {
+      display: none;
+    }
   }
   @media (max-width: 981px) {
     height: 52px;
@@ -29,8 +32,23 @@
         height: 28px;
       }
     }
-    button {
-      background: $black !important;
+    .user {
+      button {
+        width: 36px;
+        height: 36px;
+        margin-right: 16px;
+        min-width: 0;
+        border-radius: 50%;
+        background: lighten($black, 4%) !important;
+        .name {
+          display: none;
+        }
+        svg {
+          display: inline;
+          margin: 0;
+          fill: $grey !important;
+        }
+      }
     }
   }
 }

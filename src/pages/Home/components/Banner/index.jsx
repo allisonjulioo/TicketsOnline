@@ -24,7 +24,7 @@ export default () => {
         </Button>
         <div className="row">
           <Button type="primary">ingresso</Button>
-          <Button type="outline mobile">
+          <Button type="outline">
             <FaPlay /> <span>trailer</span>
           </Button>
         </div>

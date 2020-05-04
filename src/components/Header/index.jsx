@@ -1,7 +1,8 @@
 import React from "react";
-import "./styles.scss";
+import { FaUser } from "react-icons/fa";
 import Button from "@/components/Button";
 import logo from "@/assets/logo.png";
+import "./styles.scss";
 
 export default () => {
   return (
@@ -10,7 +11,10 @@ export default () => {
         <img src={logo} alt="Bilheteria" />
       </div>
       <div className="user">
-        <Button type="primary">Allison Julio</Button>
+        <Button type="primary mobile">
+          <span className="name">Allison Julio</span>
+          <FaUser />
+        </Button>
       </div>
     </div>
   );
