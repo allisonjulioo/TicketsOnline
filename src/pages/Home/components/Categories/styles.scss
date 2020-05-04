@@ -3,7 +3,24 @@
   margin: 0 -1em;
   padding: 0 0.7em 2em;
   background: lighten($black, 4%);
-  &.container {
-    padding: 1em;
+  .list {
+    overflow-x: auto;
+    padding: 0.4em 0;
+    @include flex-center;
+    li {
+      cursor: pointer;
+      font-size: 13px;
+      text-transform: uppercase;
+      padding: 0.4em 0.6em 0.6em;
+      margin: 0 0.4em 0 0;
+      color: $grey;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      &.active {
+        font-weight: bold;
+        border-color: $primary;
+        color: $white;
+      }
+    }
   }
 }

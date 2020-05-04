@@ -9,11 +9,11 @@ export default () => {
     <div id="home">
       <Banner />
       <div className="container">
-        <h4 className="title">Categorias</h4>
+        <h4 className="title">Populares</h4>
         <MovieSlider />
       </div>
       <div className="container">
-        <h4 className="title">Populares</h4>
+        <h4 className="title">Categorias</h4>
         <Categories />
       </div>
     </div>
