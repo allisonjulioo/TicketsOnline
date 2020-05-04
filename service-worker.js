@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/bilheteria-online-frontend/precache-manifest.864a74ca0d2d738c95c32331095e42af.js"
+  "/bilheteria-online-frontend/precache-manifest.ca5a1289d8b40ab4c41cb5487fa729ef.js"
 );
 
 self.addEventListener('message', (event) => {
