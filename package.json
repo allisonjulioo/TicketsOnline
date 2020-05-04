@@ -15,7 +15,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
-  "homepage": "http://allisonjulioo.github.io/bilheteria-online-frontend/",
+  "homepage": "https://allisonjulioo.github.io/bilheteria-online-frontend/",
   "scripts": {
     "start": "craco start",
     "build": "craco build",
