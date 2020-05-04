@@ -1,7 +1,7 @@
 @import "@/styles/";
 
 #header {
-  height: 60px; 
+  height: 60px;
   padding-right: 20px;
   @include flex-center-spaced;
   background: $primary;
@@ -17,5 +17,16 @@
   }
   button {
     margin: 0;
+  }
+  @media (max-width: 981px) {
+    height: 52px;
+    background: $black;
+    .branding {
+      min-width: 20px;
+      background: $black;
+    }
+    button {
+      background: $black !important;
+    }
   }
 }

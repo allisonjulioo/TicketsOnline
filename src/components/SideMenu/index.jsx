@@ -4,7 +4,7 @@ import "./styles.scss";
 
 export default () => {
   const [active, setActive] = useState("Início");
-  const [compress, setCompress] = useState(false);
+  const [compress, setCompress] = useState(true);
   const menu = [
     { name: "Início", icon: "FaHome" },
     { name: "Tendências", icon: "FaBolt" },
