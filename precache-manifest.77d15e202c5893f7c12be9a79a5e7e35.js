@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "84de3b7356666e7581644b7410845bfa",
+    "revision": "35fe040706e1832dcf492d77e06e3cb7",
     "url": "/bilheteria-online-frontend/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bilheteria-online-frontend/static/css/2.8347cf0b.chunk.css"
   },
   {
-    "revision": "d2e65de8d907dcde56b9",
+    "revision": "34a9bd84a9ced74e3a7d",
     "url": "/bilheteria-online-frontend/static/css/main.fa03c4cd.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bilheteria-online-frontend/static/js/2.f0ff4935.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d2e65de8d907dcde56b9",
-    "url": "/bilheteria-online-frontend/static/js/main.0a84f963.chunk.js"
+    "revision": "34a9bd84a9ced74e3a7d",
+    "url": "/bilheteria-online-frontend/static/js/main.a7cf2d64.chunk.js"
   },
   {
     "revision": "b8d8504e06eacd9473f1",
