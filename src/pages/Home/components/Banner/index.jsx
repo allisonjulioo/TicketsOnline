@@ -17,7 +17,7 @@ export default ({ movie }) => {
             <FaStar key={star} color="#FFC107" />
           ))}
         </div>
-        <Button type="primary mobile">
+        <Button type="primary mobile" onClick={() => history.push(`/movie/2`)}>
           <FaPlay />
         </Button>
         <div className="row">
