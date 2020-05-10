@@ -8,6 +8,14 @@
 .container {
   width: 100%;
 }
+.container-md {
+  margin: 0 auto;
+  display: block;
+  max-width: 700px;
+  @media (max-width: 981px) {
+    padding: 0 2em;
+  }
+}
 .mb {
   display: inline;
   @media (max-width: 981px) {

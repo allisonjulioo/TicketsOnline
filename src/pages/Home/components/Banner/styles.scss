@@ -27,6 +27,7 @@
   .title {
     width: 400px;
     margin: 12em 6em;
+    text-align: left;
     position: absolute;
     z-index: 3;
     h1 {
@@ -36,9 +37,10 @@
       margin-bottom: 1rem;
     }
     p {
-      color: $grey;
+      color: lighten($grey, 20%);
       margin: 0 0 0.5em;
-      line-height: 20px;
+      line-height: 20px; 
+      padding: 1em;
     }
     .rating {
       margin: 0 0 2em;

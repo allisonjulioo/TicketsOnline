@@ -1,53 +1,54 @@
 @import "@/styles";
 
 #slider {
-  .row {
-    overflow-y: auto;
-    .item {
-      padding: 0.6em 0.4em;
-      border-radius: 3px;
-      width: 125px;
-      min-width: 125px;
-      text-align: left;
-      margin: 0.1em 0.5em 0 0;
+  .item {
+    cursor: pointer;
+    padding: 0.6em 0.4em;
+    border-radius: 3px;
+    width: 125px;
+    min-width: 125px;
+    text-align: left;
+    margin: 0.1em 0.5em 0 0;
+    figure {
+      img {
+        pointer-events: none;
+        user-select: none;
+        border-radius: 3px;
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+      }
+    }
+    .content {
+      .description,
+      p {
+        font-size: 12px;
+      }
+      .description {
+        font-weight: bold;
+        margin: 0.2em 0;
+        min-height: 36px;
+      }
+      .rating {
+        @include flex-center;
+      }
+    }
+    &:active {
+      opacity: 0.7;
+      background: darken($black, 4%);
+    }
+    @media (min-width: 981px) {
+      width: 300px;
+      min-width: 300px;
       figure {
         img {
-          border-radius: 3px;
-          width: 100%;
-          height: 160px;
-          object-fit: cover;
+          height: 360px;
         }
       }
       .content {
         .description,
         p {
-          font-size: 12px;
-        }
-        .description {
-          font-weight: bold;
-          margin: 0.2em 0;
-          min-height: 36px;
-        }
-        .rating {
-          @include flex-center;
-        }
-      }
-      &:active {
-        background: darken($black, 4%);
-      }
-      @media (min-width: 981px) {
-        width: 300px;
-        min-width: 300px;
-        figure {
-          img {
-            height: 360px;
-          }
-        }
-        .content {
-          .description,
-          p {
-            font-size: 16px;
-          }
+          font-size: 16px;
         }
       }
     }

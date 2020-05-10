@@ -1,5 +1,6 @@
 import React from "react";
 import SideMenu from "@/components/SideMenu";
+import Header from "@/components/Header";
 import Routes from "./routes";
 
 export default () => {
@@ -8,6 +9,7 @@ export default () => {
       <div className="row">
         <SideMenu />
         <div className="container">
+          <Header />
           <Routes />
         </div>
       </div>

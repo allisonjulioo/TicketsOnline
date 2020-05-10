@@ -1,19 +1,17 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { FaPlay, FaStar } from "react-icons/fa";
-import Banner from "@/assets/banner.png";
 import Button from "@/components/Button";
 import "./styles.scss";
 
-export default () => {
+export default ({ movie }) => {
+  const history = useHistory();
+  const { title, description, img } = movie;
   return (
     <div id="banner">
       <div className="title">
-        <h1>Blood Shot 2020</h1>
-        <p>
-          Baseado no best-seller de banda desenhada, Vin Diesel protagoniza
-          "Bloodshot" na pele de Ray Garrison, um soldado recentemente morto em
-          combate e ressuscitado como o super-humano Bloodshot da empresa RST.
-        </p>
+        <h1>{title}</h1>
+        <p>{description}</p>
         <div className="rating">
           {[1, 2, 3, 4, 5].map((star) => (
             <FaStar key={star} color="#FFC107" />
@@ -23,13 +21,15 @@ export default () => {
           <FaPlay />
         </Button>
         <div className="row">
-          <Button type="primary">ingresso</Button>
+          <Button type="primary" onClick={() => history.push(`/movie/2`)}>
+            ingresso
+          </Button>
           <Button type="outline">
             <FaPlay /> <span>trailer</span>
           </Button>
         </div>
       </div>
-      <img src={Banner} alt="" />
+      <img src={img} alt="" />
     </div>
   );
 };

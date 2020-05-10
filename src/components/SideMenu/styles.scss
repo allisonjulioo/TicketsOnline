@@ -9,7 +9,6 @@
   width: 48px;
   min-width: 48px;
   min-height: 100%;
-  transition: all ease-in-out 0.4s;
 
   .branding {
     @include flex-center;
@@ -24,7 +23,7 @@
   }
   .menu {
     margin-top: 20px;
-    li {
+    a {
       color: $grey;
       @include flex-center;
       cursor: pointer;
@@ -38,48 +37,47 @@
         margin-right: 1em;
       }
       span {
+        visibility: hidden;
         white-space: nowrap;
         opacity: 0;
-        transition: all ease-in-out 0.01s;
+        height: 100%;
+        background: $primary;
+        display: flex;
+        align-items: center;
+        padding: 0 1em;
+        margin-left: -1em;
       }
       &.active {
+        cursor: default;
         color: $primary;
         font-weight: 700;
         background: lighten($black, 2%);
-        &:hover {
-          color: $primary;
+        span {
           background: lighten($black, 2%);
+        }
+        &:hover {
+          color: $black;
+          background: $primary;
+          span {
+            background: $primary;
+          }
         }
       }
       &:hover {
         color: $white;
-        background: lighten($black, 0.02%);
-      }
-      &:active {
-        background: lighten($black, 1%);
+        background: $primary;
       }
     }
   }
-  &:hover {
-    transition: all ease-in-out 0.2s;
-    width: 240px;
-    min-width: 240px;
-    .branding {
-      img {
-        transition-delay: 1s;
-        &.mb {
-          display: none;
-        }
-        &.dt {
-          display: inline;
-        }
+
+  .menu {
+    a {
+      span {
+        opacity: 1;
       }
-    }
-    .menu {
-      li {
+      &:hover {
         span {
-          transition: all linear 0.1s 0.3s;
-          opacity: 1;
+          visibility: visible;
         }
       }
     }
@@ -101,7 +99,7 @@
       @include flex-center;
       margin: 0;
       height: 100%;
-      li {
+      a {
         height: 100%;
         margin: 0;
         flex: 1;
@@ -110,6 +108,7 @@
         align-items: center;
         padding: 0;
         span {
+          height: auto;
           font-size: 10px;
           display: none;
         }
@@ -118,7 +117,19 @@
         }
         &.active {
           span {
+            visibility: visible;
+            color: $primary;
             display: block;
+            margin: 0 auto;
+          }
+          &:hover,
+          &:active {
+            background: lighten($black, 2%);
+            span,
+            svg {
+              color: $primary;
+              background: transparent;
+            }
           }
         }
       }
