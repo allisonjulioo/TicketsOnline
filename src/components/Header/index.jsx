@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "@/assets/logo.png";
+import logoLight from "@/assets/logo-light.png";
 import UserDropdown from "./components/Dropdown"; 
 import "./styles.scss";
 
