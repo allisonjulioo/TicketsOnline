@@ -26,12 +26,13 @@ export default () => {
 
   return (
     <div id="auth-register">
-      <h1>Bem Vindo ao Cadastro</h1>
-      <p>
-        Com o cadastro, você tem mais comodidade para realizar suas escolhas !
-      </p>
-      <p>Para isso, precisamos que você informe as informações abaixo:</p>
-
+      <div className="header">
+        <h1>Bem Vindo ao Cadastro</h1>
+        <p>
+          Com o cadastro, você tem mais comodidade para realizar suas escolhas !
+        </p>
+        <p>Para isso, precisamos que você informe as informações abaixo:</p>
+      </div>
       <form onSubmit={register}>
         <label>
           <p>Nome Completo</p>
@@ -103,7 +104,7 @@ export default () => {
         <br></br>
         <br></br>
         <br></br>
-        <Button>Realizar Cadastro</Button>
+        <Button type="primary">Realizar Cadastro</Button>
       </form>
     </div>
   );

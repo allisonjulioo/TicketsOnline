@@ -28,3 +28,12 @@
     display: inline;
   }
 }
+.header {
+  text-align: center;
+  margin: 1em 0 2em;
+  h1 {
+    font-size: 2em;
+    color: $white;
+    margin: 2em 0;
+  }
+}

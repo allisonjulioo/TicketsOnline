@@ -14,9 +14,10 @@ export default () => {
 
   return (
     <div id="auth-login">
-      <h1>Bem Vindo</h1>
-      <p>Para continuar, favor fazer o login</p>
-
+      <div className="header">
+        <h1>Bem vindo</h1>
+        <p>Para continuar, favor fazer o login</p>
+      </div>
       <form onSubmit={login}>
         <label>
           <p>CPF</p>
@@ -38,9 +39,10 @@ export default () => {
             id=""
           />
         </label>
-        <Button>Login</Button>
-        <p>Não possui conta? Clique</p>
-        <Link to="/register">aqui</Link> para acessar
+        <Button type="primary">Login</Button>
+        <small>
+          Não possui conta? Clique <Link to="/register">aqui</Link> para se cadastrar
+        </small>
       </form>
     </div>
   );
