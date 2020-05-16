@@ -17,7 +17,7 @@ export default () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title,
+        title: title.replace(" ", ""),
         year,
         releaseData,
         finalDate,
@@ -43,7 +43,7 @@ export default () => {
             placeholder="Insira o título do filme"
             type="text"
             value={title}
-            onChange={(event) => setTitle(event.target.value.replace(" ", ""))}
+            onChange={(event) => setTitle(event.target.value)}
           />
         </label>
         <label>
