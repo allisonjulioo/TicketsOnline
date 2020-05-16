@@ -26,11 +26,52 @@ export default () => {
         <img src={logo} alt="Bilheteria" height="40" />
       </div>
       <div className="user">
-        <Button type="primary mobile">
+        {/* <Button type="primary mobile">
           <FaUser />
-        </Button>
+        </Button> */}
+        <NavItem icon={<FaUser />}>
+            <DropdownMenu/>
+        </NavItem>
         <span className="mb">Allison</span>
       </div>
     </div>
   );
+  function NavItem(props){
+    const [open, setOpen] = useState(false);
+
+    return(
+      <li className = "nav-item">
+        <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+          {props.icon}  
+        </a>
+
+        {open && props.children}
+      </li>
+    );
+  }
+  function DropdownMenu() {
+
+    function DropdownItem(props) {
+      return(
+        <a href = "#" className="menu-item">
+          <span className = "icon-button">{props.leftIcon}</span>
+
+          {props.children}
+
+          <span className = "icon-right">{props.rightIcon}</span>
+
+
+        </a>
+      );
+    }
+
+    
+  return (
+    <div className="dropdown">
+        <DropdownItem leftIcon={<FaUser />}>Configurações</DropdownItem>
+        <DropdownItem leftIcon={<FaUser />}>Meu Perfil</DropdownItem>
+    </div>
+  
+    );
+  }
 };
