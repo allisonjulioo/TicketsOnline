@@ -16,7 +16,12 @@ export default () => {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title, year, releaseData, finalDate }),
+      body: JSON.stringify({
+        title,
+        year,
+        releaseData,
+        finalDate,
+      }),
     })
       .then(() => alert("Filme cadastrado com sucesso"))
       .catch((err) => alert("Erro ao cadastrar o filme!"));
@@ -38,7 +43,7 @@ export default () => {
             placeholder="Insira o título do filme"
             type="text"
             value={title}
-            onChange={(event) => setTitle(event.target.value)}
+            onChange={(event) => setTitle(event.target.value.replace(" ", ""))}
           />
         </label>
         <label>
