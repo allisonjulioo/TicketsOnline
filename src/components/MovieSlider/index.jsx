@@ -15,7 +15,7 @@ export default ({ desk, large, tablet, mobile }) => {
       items: large || 5,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 1920, min: 1024 },
       items: desk || 4,
     },
     tablet: {

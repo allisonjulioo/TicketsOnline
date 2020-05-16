@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import { FaPlay, FaStar, FaHeart, FaClock } from "react-icons/fa";
 import MovieSlider from "@/components/MovieSlider";
 import Button from "@/components/Button";
@@ -21,7 +20,6 @@ export default () => {
     },
   ];
   const [selectHour, setSelectHour] = useState(hours[0]);
-  const history = useHistory();
   return (
     <div id="single">
       <div id="banner">
@@ -78,10 +76,11 @@ export default () => {
           <div>
             <h4 className="title">CINEMAS</h4>
             <section className="row wrap cinemas">
-              {cinemas.map((cin) => {
+              {cinemas.map((cin, index) => {
                 if (cin.sections.includes(selectHour)) {
                   return <img key={cin.name} src={cin.logo} alt="" />;
                 }
+                return ''
               })}
             </section>
           </div>
