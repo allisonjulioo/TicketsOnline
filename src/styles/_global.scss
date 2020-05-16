@@ -44,3 +44,12 @@ ul {
     margin-left: 0;
   }
 }
+:disabled {
+  opacity: 0.7;
+  pointer-events: none;
+  cursor: default;
+  user-select: none;
+  img {
+    filter: brightness(0) invert(1);
+  }
+}

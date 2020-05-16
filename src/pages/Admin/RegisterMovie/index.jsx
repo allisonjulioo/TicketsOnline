@@ -3,12 +3,14 @@ import "./styles.scss";
 import Button from "@/components/Button";
 
 export default () => {
+  const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [releaseData, setReleaseData] = useState("");
   const [finalDate, setFinalDate] = useState("");
 
   async function register(event) {
+    setLoading(true);
     event.preventDefault();
     await fetch("http://localhost:4567/addFilme", {
       method: "POST",
@@ -23,8 +25,14 @@ export default () => {
         finalDate,
       }),
     })
-      .then(() => alert("Filme cadastrado com sucesso"))
-      .catch((err) => alert("Erro ao cadastrar o filme!"));
+      .then(() => {
+        alert("Filme cadastrado com sucesso");
+        setLoading(false);
+      })
+      .catch((err) => {
+        alert("Erro ao cadastrar o filme!");
+        setLoading(false);
+      });
   }
 
   return (
@@ -75,7 +83,9 @@ export default () => {
             onChange={(event) => setFinalDate(event.target.value)}
           />
         </label>
-        <Button type="primary">Realizar Cadastro</Button>
+        <Button type="primary" disabled={loading}>
+          Realizar Cadastro
+        </Button>
       </form>
     </div>
   );
