@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import Button from "@/components/Button";
 import logoLight from "@/assets/logo-light.png";
+import { Link } from "react-router-dom";
 import "./styles.scss";
 
 export default () => {
@@ -26,9 +27,11 @@ export default () => {
         <img src={logoLight} alt="Bilheteria" />
       </div>
       <div className="user">
+      <Link to="/login">
         <Button type="primary mobile">
           <FaUser />
         </Button>
+      </Link>
         <span className="mb">Allison</span>
       </div>
     </div>
