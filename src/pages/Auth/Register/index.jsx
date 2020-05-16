@@ -47,7 +47,7 @@ export default () => {
           <p>CPF</p>
           <input
             placeholder="Insira seu CPF"
-            type="text"
+            type="number"
             value={cpf}
             onChange={(event) => setCPF(event.target.value)}
           />
