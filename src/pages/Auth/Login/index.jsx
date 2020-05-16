@@ -1,16 +1,32 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
+import { useHistory } from "react-router-dom";
 import Button from "@/components/Button";
 
 export default () => {
-  const [cpf, setCPF] = useState("");
-  const [password, setPassword] = useState("");
+    const [cpf, setCPF] = useState("");
+    const [password, setPassword] = useState("");
+    const history = useHistory();
+    
+    async function login(event) {
+        event.preventDefault();
 
-  function login(event) {
-    event.preventDefault();
-    console.log(cpf, password);
-  }
+        const resposta = await fetch("http://localhost:4567/login",
+            {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    cpf,
+                    password
+                })
+            })
+            .then(() => history.push(`/`))
+            .catch((err) => alert("Erro ao Logar, usuário ou senha inválidos"));
+    };
 
   return (
     <div id="auth-login">
@@ -47,36 +63,3 @@ export default () => {
     </div>
   );
 };
-/*
-export default () => {
-    const s = async ()  => {
-        const resposta = await fetch("http://localhost:4567/addFilme",
-        {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "title":"sonic",
-                "year": "2020",
-                "releaseData": "2020-05-10",
-                "finalDate": "2020-07-12"
-            })
-        })
-
-        const data = await resposta.json();
-        console.log(data)
-    }
-
-    useEffect(() => {s()},[]);
-
-    return (
-        <div className="container"><h2>
-
-            Teste Request
-
-
-            </h2></div>
-    );
-}*/
