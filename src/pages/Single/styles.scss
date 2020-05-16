@@ -1,0 +1,129 @@
+@import "@/styles";
+
+#single {
+  .title {
+    color: $white;
+    font-size: 12px;
+    margin: 3em 0 1em;
+    font-weight: normal;
+    text-transform: uppercase;
+    @media (max-width: 981px) {
+      margin: 1em 0 1em;
+    }
+  }
+  #banner {
+    height: 350px;
+    @media (max-width: 981px) {
+      height: 256px;
+    }
+    .title {
+      width: 100%;
+      margin: 4em auto;
+      left: 0;
+      right: 0;
+      p {
+        padding: 0;
+        font-size: 16px;
+      }
+      .icon {
+        svg {
+          font-size: 20px;
+        }
+      }
+    }
+    .rating {
+      @include flex-center;
+      display: flex;
+      align-items: center;
+      float: right;
+      z-index: +5;
+      position: absolute;
+      right: 0;
+      margin: 0;
+      bottom: 0;
+      @media (max-width: 981px) {
+        right: 16px;
+      }
+      h1 {
+        color: $white;
+        font-size: 48px;
+        margin-left: 0.3em;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .body {
+    .row {
+      @media (max-width: 981px) {
+        display: block;
+      }
+    }
+    .wrap {
+      max-width: 100%;
+      flex-wrap: wrap;
+      margin-right: 2em;
+    }
+    .cinemas {
+      img {
+        margin: 12px 12px 0 0;
+      }
+    }
+    .cta {
+      text-align: center;
+      margin: 2em 0;
+      h5 {
+        color: $grey;
+      }
+      button {
+        width: 100%;
+        margin: 2em 0 7em;
+      }
+    }
+    .sinopse {
+      p {
+        color: $grey;
+        font-size: 12px;
+      }
+    }
+    .others {
+      .item {
+        width: 220px;
+        min-width: 189px;
+        @media (max-width: 981px) {
+          width: 120px;
+          min-width: 120px;
+        }
+        img {
+          height: 300px;
+          @media (max-width: 981px) {
+            height: 160px;
+          }
+        }
+      }
+    }
+  }
+  .info {
+    @include flex-center;
+    font-size: 14px;
+    display: inline-block;
+    margin: 2em 0;
+    padding: 0.2em 0.5em;
+    background: $black;
+    margin-right: 1em;
+    color: $white;
+    @media (max-width: 981px) {
+      margin: 1em 0;
+      margin-right: 0.4em;
+    }
+    svg {
+      margin-right: 0.4em;
+    }
+    &.light {
+      color: $grey;
+      background: lighten($black, 2%);
+    }
+    &.primary {
+      background: $primary;
+    }
+  }
+}
