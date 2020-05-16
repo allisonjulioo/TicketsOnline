@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 
-import Home from "@/pages/Home";
-import Single from "@/pages/Single";
+import Home from "@/pages/Site/Home";
+import Single from "@/pages/Site/Single";
+
 import AuthLogin from "@/pages/Auth/Login";
 import AuthRegister from "@/pages/Auth/Register";
 
