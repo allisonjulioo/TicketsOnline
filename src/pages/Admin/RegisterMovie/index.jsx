@@ -42,10 +42,10 @@ export default () => {
           />
         </label>
         <label>
-          <p>ANO</p>
+          <p>Ano</p>
           <input
             placeholder="Ano do filme"
-            type="text"
+            type="number"
             value={year}
             onChange={(event) => setYear(event.target.value)}
           />
