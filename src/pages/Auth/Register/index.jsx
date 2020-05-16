@@ -41,8 +41,6 @@ export default () => {
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            name=""
-            id=""
           />
         </label>
         <label>
@@ -52,8 +50,6 @@ export default () => {
             type="text"
             value={cpf}
             onChange={(event) => setCPF(event.target.value)}
-            name=""
-            id=""
           />
         </label>
         <label>
@@ -74,8 +70,6 @@ export default () => {
             type="text"
             value={address}
             onChange={(event) => setAddress(event.target.value)}
-            name=""
-            id=""
           />
         </label>
         <label>
@@ -85,17 +79,11 @@ export default () => {
             type="text"
             value={birth}
             onChange={(event) => setBirth(event.target.value)}
-            name=""
-            id=""
           />
         </label>
         <label>
           <p>Sexo</p>
-          <select
-            name=""
-            id=""
-            onChange={(event) => setSex(event.target.value)}
-          >
+          <select onChange={(event) => setSex(event.target.value)}>
             <option> -- Selecione o sexo -- </option>
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
