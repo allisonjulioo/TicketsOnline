@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import MovieSlider from "@/components/MovieSlider";
+import SideMenu from "@/components/SideMenu";
 import Banner from "./components/Banner";
 import Categories from "./components/Categories";
 import "./styles.scss";
@@ -22,6 +23,7 @@ export default () => {
   ];
   return (
     <div id="home">
+      <SideMenu />
       <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
         {high.map((movie, index) => (
           <Banner movie={movie} key={index} />

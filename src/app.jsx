@@ -1,5 +1,4 @@
-import React from "react";
-import SideMenu from "@/components/SideMenu";
+import React from "react"; 
 import Header from "@/components/Header";
 import Routes from "./routes";
 
@@ -7,7 +6,6 @@ export default () => {
   return (
     <div id="app">
       <div className="row">
-        <SideMenu />
         <div className="container">
           <Header />
           <Routes />

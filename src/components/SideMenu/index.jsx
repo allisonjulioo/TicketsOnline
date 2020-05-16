@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import * as FontAwesome from "react-icons/fa";
 import logoLight from "@/assets/logo-light.png";
-import favico from "@/assets/movie-tickets.png";
+import favicon from "@/assets/movie-tickets.png";
 import "./styles.scss";
 
 export default () => { 
@@ -19,7 +19,7 @@ export default () => {
     <div id="side-menu" className="compress">
       <div className="branding">
         <img src={logoLight} className="dt" alt="Bilheteria" />
-        <img src={favico} className="mb" alt="Bilheteria" />
+        <img src={favicon} className="mb" alt="Bilheteria" />
       </div>
       <ul className="menu">
         <BrowserRouter>
