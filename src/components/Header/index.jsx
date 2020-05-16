@@ -22,7 +22,7 @@ export default () => {
   return (
     <div id="header" className={scrolled ? "scrolled" : ""}>
       <div className="branding" style={{ display: scrolled ? "" : "none" }}>
-        <img src={logo} alt="Bilheteria" height="40" />
+        <img src={logoLight} alt="Bilheteria" height="40" />
       </div>
       <UserDropdown />
     </div>

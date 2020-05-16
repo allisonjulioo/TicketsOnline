@@ -25,5 +25,7 @@ const Routes = ({ history }) => {
     </Switch>
   </BrowserRouter>
 );
+}
 
 export default withRouter(Routes);
+
