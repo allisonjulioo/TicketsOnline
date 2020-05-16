@@ -19,7 +19,7 @@ export default () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: title.replace(" ", ""),
+        title,
         year,
         releaseData,
         finalDate,
