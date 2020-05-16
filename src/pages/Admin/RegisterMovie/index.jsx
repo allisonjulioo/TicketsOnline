@@ -19,7 +19,7 @@ export default () => {
       body: JSON.stringify({ title, year, releaseData, finalDate }),
     })
       .then(() => alert("Filme cadastrado com sucesso"))
-      .catch((err) => alert("Erro ao cadastrar o filme"));
+      .catch((err) => alert("Erro ao cadastrar o filme!"));
   }
 
   return (
