@@ -1,0 +1,84 @@
+@import "@/styles/";
+
+#dropdown {
+  .user {
+    position: relative;
+    margin: 0 20px 0 0 !important;
+    cursor: pointer;
+    padding: 4px 12px;
+    user-select: none;
+    &:hover {
+      background: rgba($white, 0.1);
+    }
+    &:active {
+      background: rgba($white, 0.2);
+    }
+    button {
+      width: 36px;
+      height: 36px;
+      min-width: 0;
+      margin-top: 0;
+      border-radius: 50%;
+      background: lighten($black, 4%) !important;
+    }
+    .nav-item {
+      @include flex-center;
+    }
+
+    .icon-button {
+      min-width: 0;
+      margin-top: 0;
+      width: 32px;
+      margin-right: 1em;
+      min-width: 32px;
+      min-height: 32px;
+      .name {
+        display: none;
+      }
+      background: lighten($black, 4%);
+      border-radius: 50%;
+      padding: 5px;
+      margin: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: filter 300ms;
+    }
+    .dropdown {
+      position: absolute;
+      top: 48px;
+      width: 200px;
+      right: 0;
+      background-color: $secondary;
+      overflow: hidden;
+      transition: height 500ms ease;
+    }
+    .menu {
+      width: 100%;
+    }
+    .menu-item {
+      line-height: 1;
+      height: 50px;
+      @include flex-center;
+      transition: background 500ms;
+      padding: 0.5rem;
+      &:hover {
+        background-color: lighten($secondary, 4%);
+      }
+
+      svg {
+        margin: 0 10px;
+        display: inline;
+        display: inline;
+        fill: lighten($grey, 14%);
+      }
+    }
+    //fim
+    @media (max-width: 981px) {
+      margin: 0 4px 0 0 !important;
+      button {
+        margin: 0 12px 0 0 !important;
+      }
+    }
+  }
+}
