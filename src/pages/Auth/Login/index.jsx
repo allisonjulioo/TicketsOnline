@@ -38,11 +38,9 @@ export default () => {
         <label>
           <p>CPF</p>
           <input
-            type="text"
+            type="number"
             value={cpf}
             onChange={(event) => setCPF(event.target.value)}
-            name=""
-            id=""
           />
         </label>
         <label>
@@ -51,13 +49,12 @@ export default () => {
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            name=""
-            id=""
           />
         </label>
         <Button type="primary">Login</Button>
         <small>
-          Não possui conta? Clique <Link to="/register">aqui</Link> para se cadastrar
+          Não possui conta? Clique <Link to="/register">aqui</Link> para se
+          cadastrar
         </small>
       </form>
     </div>
