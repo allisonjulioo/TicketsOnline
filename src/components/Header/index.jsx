@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "@/assets/logo.png";
-import UserDropdown from "./components/Dropdown";
+import UserDropdown from "./components/Dropdown"; 
 import "./styles.scss";
 
 export default () => {
