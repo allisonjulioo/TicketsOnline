@@ -11,7 +11,7 @@ export default () => {
           <span className="icon-button">
             <FaUser />
           </span>
-          <span>Allison</span>
+          <span>Carlos Germano</span>
           {open && (
             <div className="dropdown">
               <ul>
