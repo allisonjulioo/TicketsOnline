@@ -10,20 +10,24 @@
   right: 0;
   z-index: +16;
   width: 100%;
-  @include flex-center;
+  @include flex-center-spaced;
   padding: 0 12px;
-  justify-content: flex-end;
   &.scrolled {
     @include flex-center-spaced;
     transition: all ease 0.4s;
     background: $black;
   }
+  .branding {
+    cursor: pointer;
+  }
+  button {
+    margin-top: 0;
+  }
 
   @media (max-width: 981px) {
     height: 52px;
     width: 100%;
-    @include flex-center;
-    justify-content: flex-end;
+    @include flex-center-spaced;
     .branding {
       display: inline;
       padding-left: 20px;

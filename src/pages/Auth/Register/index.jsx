@@ -3,6 +3,7 @@ import "./styles.scss";
 import Button from "@/components/Button";
 
 export default () => {
+  const [loading, setLoading] = useState(false);
   const [cpf, setCPF] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +12,7 @@ export default () => {
   const [sex, setSex] = useState("");
 
   async function register(event) {
+    setLoading(true);
     event.preventDefault();
     await fetch("http://localhost:4567/addUsuario", {
       method: "POST",
@@ -20,8 +22,8 @@ export default () => {
       },
       body: JSON.stringify({ cpf, name, address, password, birth, sex }),
     })
-      .then(() => alert("Cadastro realizado com sucesso"))
-      .catch((err) => alert("Erro ao cadastrar"));
+      .then(() => {setLoading(false); alert("Cadastro realizado com sucesso")})
+      .catch((err) => {setLoading(false); alert("Erro ao cadastrar")});
   }
 
   return (
@@ -92,7 +94,7 @@ export default () => {
         <br></br>
         <br></br>
         <br></br>
-        <Button type="primary">Realizar Cadastro</Button>
+        <Button disabled={loading} type="primary">Realizar Cadastro</Button>
       </form>
     </div>
   );

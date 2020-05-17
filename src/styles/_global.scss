@@ -9,10 +9,11 @@ html {
   overflow-x: hidden;
 }
 body {
-  overflow: hidden;
-  background: $black;
+  overflow: auto;
   color: $white;
-  margin-bottom: 60px;
+  min-height: 100vh;
+  display: block;
+  background-color: lighten($black, 1%);
 }
 * {
   margin: 0;

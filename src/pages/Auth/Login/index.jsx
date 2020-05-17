@@ -5,12 +5,14 @@ import { useHistory } from "react-router-dom";
 import Button from "@/components/Button";
 
 export default () => {
+  const [loading, setLoading] = useState(false);
   const [cpf, setCPF] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
 
   async function login(event) {
     event.preventDefault();
+    setLoading(true);
     await fetch("http://localhost:4567/login", {
       method: "POST",
       headers: {
@@ -22,8 +24,14 @@ export default () => {
         password,
       }),
     })
-      .then(() => history.push(`/`))
-      .catch((err) => alert("Erro ao Logar, usuário ou senha inválidos"));
+      .then(() => {
+        setLoading(true);
+        history.push(`/`);
+      })
+      .catch((err) => {
+        setLoading(true);
+        alert("Erro ao Logar, usuário ou senha inválidos");
+      });
   }
 
   return (
@@ -49,7 +57,9 @@ export default () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        <Button type="primary">Login</Button>
+        <Button disabled={loading} type="primary">
+          Login
+        </Button>
         <small>
           Não possui conta? Clique <Link to="/register">aqui</Link> para se
           cadastrar

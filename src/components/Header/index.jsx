@@ -5,11 +5,11 @@ import Button from "@/components/Button";
 import UserDropdown from "./components/Dropdown";
 import "./styles.scss";
 
-export default (props) => {
+export default () => {
   const history = useHistory();
   const [scrolled, setScrolled] = useState();
   const [logged, setLogged] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 50) {
@@ -25,11 +25,15 @@ export default (props) => {
   }, []);
   return (
     <div id="header" className={scrolled ? "scrolled" : ""}>
-      <div className="branding" style={{ display: scrolled ? "" : "none" }}>
+      <div
+        className="branding"
+        style={{ opacity: scrolled ? "1" : "0" }}
+        onClick={() => history.push(`/home`)}
+      >
         <img src={logoLight} alt="Bilheteria" height="40" />
       </div>
       {!logged && (
-        <section>
+        <section style={{ opacity: scrolled ? "1" : "0" }}>
           <Button type="outline sm" onClick={() => history.push(`/login`)}>
             Entrar
           </Button>
