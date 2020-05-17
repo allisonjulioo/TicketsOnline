@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 
 import Home from "@/pages/Site/Home";
 import Single from "@/pages/Site/Single";
@@ -9,24 +9,25 @@ import AuthRegister from "@/pages/Auth/Register";
 import RegisterMovie from "../pages/Admin/RegisterMovie";
 
 const Routes = ({ history }) => {
-  useEffect(
-    () =>
-      history.listen((e) => {
-        console.log(e);
-      }),
-    [history]
-  );
+  setHomeRouter(history);
+  useEffect(() => history.listen((e) => setHomeRouter(e)), [history]);
+  function setHomeRouter(e) {
+    if (e && e.location && e.location.pathname) {
+      document.body.classList = "";
+      document.body.classList.add(
+        e.location.pathname.replace("/", "").toLowerCase()
+      );
+    }
+  }
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/movie/:id" component={Single} />
-        <Route path="/login" component={AuthLogin} />
-        <Route path="/register" component={AuthRegister} />
-        <Route path="/new/movie" component={RegisterMovie} />
-        <Route path="**" component={Home} />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route path="/main" component={Home} />
+      <Route path="/movie/:id" component={Single} />
+      <Route path="/login" component={AuthLogin} />
+      <Route path="/register" component={AuthRegister} />
+      <Route path="/new/movie" component={RegisterMovie} />
+      <Redirect from="*" to="/main" />
+    </Switch>
   );
 };
 

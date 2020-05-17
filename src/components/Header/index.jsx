@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import logoLight from "@/assets/logo-light.png";
-import UserDropdown from "./components/Dropdown"; 
+import Button from "@/components/Button";
+import UserDropdown from "./components/Dropdown";
 import "./styles.scss";
 
-export default () => {
+export default (props) => {
+  const history = useHistory();
   const [scrolled, setScrolled] = useState();
-
+  const [logged, setLogged] = useState(false);
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 50) {
@@ -24,7 +28,17 @@ export default () => {
       <div className="branding" style={{ display: scrolled ? "" : "none" }}>
         <img src={logoLight} alt="Bilheteria" height="40" />
       </div>
-      <UserDropdown />
+      {!logged && (
+        <section>
+          <Button type="outline sm" onClick={() => history.push(`/login`)}>
+            Entrar
+          </Button>
+          <Button type="primary sm" onClick={() => history.push(`/register`)}>
+            Cadastrar
+          </Button>
+        </section>
+      )}
+      {logged && <UserDropdown />}
     </div>
   );
 };

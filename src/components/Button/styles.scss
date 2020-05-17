@@ -26,6 +26,10 @@
   &.sm {
     min-width: 92px;
     height: 40px;
+    padding: 0 16px;
+    span {
+      font-size: 12px;
+    }
   }
   &.outline {
     background: transparent;

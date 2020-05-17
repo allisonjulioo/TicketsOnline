@@ -5,28 +5,26 @@ import { useHistory } from "react-router-dom";
 import Button from "@/components/Button";
 
 export default () => {
-    const [cpf, setCPF] = useState("");
-    const [password, setPassword] = useState("");
-    const history = useHistory();
-    
-    async function login(event) {
-        event.preventDefault();
+  const [cpf, setCPF] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
 
-        const resposta = await fetch("http://localhost:4567/login",
-            {
-                method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    cpf,
-                    password
-                })
-            })
-            .then(() => history.push(`/`))
-            .catch((err) => alert("Erro ao Logar, usuário ou senha inválidos"));
-    };
+  async function login(event) {
+    event.preventDefault();
+    await fetch("http://localhost:4567/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        cpf,
+        password,
+      }),
+    })
+      .then(() => history.push(`/`))
+      .catch((err) => alert("Erro ao Logar, usuário ou senha inválidos"));
+  }
 
   return (
     <div id="auth-login">

@@ -10,7 +10,11 @@
     &:hover {
       background: rgba($white, 0.1);
     }
-    &:active {
+    &:active,
+    &:focus {
+      background: rgba($white, 0.2);
+    }
+    &.open {
       background: rgba($white, 0.2);
     }
     button {
@@ -43,11 +47,13 @@
       align-items: center;
       justify-content: center;
       transition: filter 300ms;
+      user-select: none;
+      pointer-events: none;
     }
     .dropdown {
       position: absolute;
       top: 48px;
-      width: 200px;
+      min-width: 160px;
       right: 0;
       background-color: $secondary;
       overflow: hidden;
@@ -67,10 +73,14 @@
       }
 
       svg {
+        font-size: 14px;
         margin: 0 10px;
         display: inline;
         display: inline;
         fill: lighten($grey, 14%);
+      }
+      span {
+        font-size: 14px;
       }
     }
     //fim
@@ -79,6 +89,10 @@
       button {
         margin: 0 12px 0 0 !important;
       }
+    }
+    span {
+      user-select: none;
+      pointer-events: none;
     }
   }
 }
