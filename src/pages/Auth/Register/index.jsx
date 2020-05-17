@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./styles.scss";
 import Button from "@/components/Button";
 
 export default () => {
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [cpf, setCPF] = useState("");
   const [name, setName] = useState("");
@@ -22,8 +24,14 @@ export default () => {
       },
       body: JSON.stringify({ cpf, name, address, password, birth, sex }),
     })
-      .then(() => {setLoading(false); alert("Cadastro realizado com sucesso")})
-      .catch((err) => {setLoading(false); alert("Erro ao cadastrar")});
+      .then(() => {
+        setLoading(false);
+        alert("Cadastro realizado com sucesso");
+      })
+      .catch((err) => {
+        setLoading(false);
+        alert("Erro ao cadastrar");
+      });
   }
 
   return (
@@ -94,8 +102,13 @@ export default () => {
         <br></br>
         <br></br>
         <br></br>
-        <Button disabled={loading} type="primary">Realizar Cadastro</Button>
+        <Button disabled={loading} type="primary">
+          Realizar Cadastro
+        </Button>
       </form>
+      <Button onClick={() => history.push(`/home`)} type="light">
+        Voltar para a home
+      </Button>
     </div>
   );
 };

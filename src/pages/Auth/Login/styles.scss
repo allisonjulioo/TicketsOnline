@@ -1,1 +1,12 @@
-@import '@/styles';
+@import "@/styles";
+
+#auth-login {
+  max-width: 400px;
+  margin: 0 auto;
+  form {
+    max-width: 400px;
+  }
+  button {
+    width: 100%;
+  }
+}

@@ -25,11 +25,11 @@ export default () => {
       }),
     })
       .then(() => {
-        setLoading(true);
-        history.push(`/`);
+        setLoading(false);
+        history.push(`/home`);
       })
       .catch((err) => {
-        setLoading(true);
+        setLoading(false);
         alert("Erro ao Logar, usuário ou senha inválidos");
       });
   }
@@ -65,6 +65,9 @@ export default () => {
           cadastrar
         </small>
       </form>
+      <Button onClick={() => history.push(`/home`)} type="light">
+        Voltar para a home
+      </Button>
     </div>
   );
 };
