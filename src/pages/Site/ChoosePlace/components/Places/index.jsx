@@ -1,16 +1,20 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Button from "@/components/Button";
 import "./styles.scss";
 import chairIcon from "@/assets/chair-icon.png";
 import { useState } from "react";
 
 export default () => {
+  const history = useHistory();
   function selectChairs(chair) {
     const hasIncluded = selectedChairs.includes(chair);
     if (hasIncluded) {
       setSelectedArr(selectedChairs.filter((ch) => ch !== chair));
     } else {
-      setSelectedArr([...selectedChairs, chair]);
+      if (selectedChairs.length <= 5) {
+        setSelectedArr([...selectedChairs, chair]);
+      }
     }
   }
   const [selectedChairs, setSelectedArr] = useState([]);
@@ -88,7 +92,7 @@ export default () => {
         ))}
       </div>
       <div className="screen">tela</div>
-      <Button type="primary confirm">
+      <Button type="primary confirm" onClick={() => history.push('/movie/2/checkout')}>
         <p>CONFIRMAR LUGARES</p>
         <small>{selectedChairs.join(",  ")}</small>
       </Button>

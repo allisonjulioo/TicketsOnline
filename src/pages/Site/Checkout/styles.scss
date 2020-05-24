@@ -1,0 +1,57 @@
+@import "@/styles/";
+
+#checkout {
+  .banner {
+    height: 150px;
+    @media (max-width: 981px) {
+      height: 130px;
+    }
+    .title {
+      width: 100%;
+      margin: 4em auto;
+      left: 0;
+      right: 0;
+      @media (max-width: 981px) {
+        margin: 2em auto 0;
+      }
+      p {
+        padding: 0;
+        font-size: 16px;
+        @media (max-width: 981px) {
+          display: block;
+        }
+      }
+    }
+  }
+  .body {
+    margin: 1em 0;
+    padding: 1em;
+    background: lighten($black, 4%);
+    button {
+      width: 100%;
+    }
+  }
+  .title {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .content {
+    margin: 1em 0;
+    @include flex-center;
+    .details {
+      margin-top: 1em;
+      padding: 1em;
+      background: darken($secondary, 94%);
+      section {
+        margin: 0 0 1em;
+        button {
+          min-width: 28px;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          margin: 4px 0 0 4px;
+        }
+      }
+    }
+  }
+}

@@ -53,9 +53,9 @@
     .dropdown {
       position: absolute;
       top: 48px;
-      min-width: 160px;
+      min-width: 100%;
       right: 0;
-      background-color: $secondary;
+      background-color: lighten($black, 12%);
       overflow: hidden;
       transition: height 500ms ease;
     }
@@ -69,7 +69,7 @@
       transition: background 500ms;
       padding: 0.5rem;
       &:hover {
-        background-color: lighten($secondary, 4%);
+        background-color: lighten($black, 22%);
       }
 
       svg {

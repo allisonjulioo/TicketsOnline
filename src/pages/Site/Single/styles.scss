@@ -15,9 +15,9 @@
     }
   }
   #banner {
-    height: 350px;
+    height: 150px;
     @media (max-width: 981px) {
-      height: 256px;
+      height: 150px;
     }
     .title {
       width: 100%;
@@ -27,36 +27,14 @@
       p {
         padding: 0;
         font-size: 16px;
-      }
-      .icon {
-        svg {
-          font-size: 20px;
+        .row {
+          display: block;
         }
-      }
-    }
-    .rating {
-      @include flex-center;
-      display: flex;
-      align-items: center;
-      float: right;
-      z-index: +5;
-      position: absolute;
-      right: 0;
-      margin: 0;
-      bottom: 0;
-      @media (max-width: 981px) {
-        right: 16px;
-      }
-      h1 {
-        color: $white;
-        font-size: 48px;
-        margin-left: 0.3em;
-        margin-bottom: 0;
       }
     }
   }
   .body {
-    padding: 20px;
+    padding: 0 1em;
     background: lighten($black, 2%);
     .row {
       @media (max-width: 981px) {
@@ -94,6 +72,9 @@
           filter: grayscale(1);
         }
       }
+      @media (max-width: 981px) {
+        display: flex;
+      }
     }
     .cta {
       text-align: center;
@@ -103,7 +84,7 @@
       }
       button {
         width: 100%;
-        margin: 2em 0 7em;
+        margin: 2em 0 1em;
         @media (max-width: 981px) {
           width: 100%;
           margin: 0;
@@ -135,30 +116,6 @@
           }
         }
       }
-    }
-  }
-  .info {
-    @include flex-center;
-    font-size: 14px;
-    display: inline-block;
-    margin: 2em 0;
-    padding: 0.2em 0.5em;
-    background: $black;
-    margin-right: 1em;
-    color: $white;
-    @media (max-width: 981px) {
-      margin: 1em 0;
-      margin-right: 0.4em;
-    }
-    svg {
-      margin-right: 0.4em;
-    }
-    &.light {
-      color: $white;
-      background: lighten($secondary, 2%);
-    }
-    &.primary {
-      background: $primary;
     }
   }
 }

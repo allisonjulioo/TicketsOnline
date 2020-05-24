@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 
+// site
 import Home from "@/pages/Site/Home";
 import Single from "@/pages/Site/Single";
 import ChoosePlace from "@/pages/Site/ChoosePlace";
+import Checkout from "../pages/Site/Checkout";
 
+// auth
 import AuthLogin from "@/pages/Auth/Login";
 import AuthRegister from "@/pages/Auth/Register";
 import RegisterMovie from "../pages/Admin/RegisterMovie";
@@ -24,6 +27,7 @@ const Routes = ({ history }) => {
       <Route path="/main" component={Home} />
       <Route path="/movie/:id" exact component={Single} />
       <Route path="/movie/:id/place" component={ChoosePlace} />
+      <Route path="/movie/:id/checkout" component={Checkout} />
       <Route path="/login" component={AuthLogin} />
       <Route path="/register" component={AuthRegister} />
       <Route path="/new/movie" component={RegisterMovie} />

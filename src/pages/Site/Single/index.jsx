@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { FaPlay, FaStar, FaHeart, FaClock } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import MovieSlider from "@/components/MovieSlider";
+import BreadCrumbs from "@/components/BreadCrumbs";
 import Button from "@/components/Button";
+import About from "./components/About";
 import img from "@/assets/banner.png";
 import "./styles.scss";
 
@@ -28,39 +29,13 @@ export default () => {
       <div id="banner">
         <div className="title container-md ">
           <h1>Blood Shot 2020</h1>
-          <p>TIS Eng. Software</p>
-          <label className="info primary">2020</label>
-          <div className="row">
-            <Button type="outline">
-              <FaPlay /> <span>trailer</span>
-            </Button>
-            <Button type="icon">
-              <FaHeart />
-            </Button>
-          </div>
-
-          <div className="rating">
-            <div className="starts">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <FaStar key={star} color="#FFC107" />
-              ))}
-              <p htmlFor="">2000 votos</p>
-            </div>
-            <h1>9,7</h1>
-          </div>
+          <p>Sobre o filme e sessões</p>
         </div>
         <img src={img} alt="" />
       </div>
       <div className="body container-md">
-        <div className="infos">
-          <label className="info">
-            <FaClock />
-            2h 20min
-          </label>
-          <label className="info light">Ação</label>
-          <label className="info light">Ficção científica</label>
-          <label className="info light">Marvel</label>
-        </div>
+        <BreadCrumbs path="sections" />
+        <About />
         <div className="row">
           <div>
             <h4 className="title">SESSÕES</h4>
@@ -111,11 +86,11 @@ export default () => {
             força imparável - mais forte do que nunca e capaz de se curar
             instantaneamente. Mas, ao controlar o seu corpo, a empresa controla
             também a sua mente e as suas memórias. Agora, Ray não sabe o que é
-            real e o que não é, mas está decidido a descobrir a verdade.
+            real e o que não é, mas está decidido a descobrir a verdade.{" "}
+            <a href="#/">ler mais</a>
           </p>
         </div>
         <div className="cta">
-          <h5>Bora assistir com um desconto?</h5>
           <Button type="primary" onClick={() => history.push(`/movie/1/place`)}>
             ESCOLHER MEU LUGAR
           </Button>

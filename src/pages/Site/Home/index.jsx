@@ -13,7 +13,7 @@ export default () => {
       description: `Baseado no best-seller de banda desenhada, Vin Diesel protagoniza
     "Bloodshot" na pele de Ray Garrison, um soldado recentemente morto em
     combate e ressuscitado como o super-humano Bloodshot da empresa RST.`,
-      img: require("@/assets/banner.png"),
+      img: require("@/assets/bloodshot-banner.jpg"),
     },
     {
       title: "Viúva Negra",
