@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7ab1ef76483f69d5931c06e721b1e4cd",
+    "revision": "daa4d4818b8f96bfb9e933512a717330",
     "url": "/bilheteria-online-frontend/index.html"
   },
   {
-    "revision": "65a4e515031418610da7",
+    "revision": "299bb67a443aed2c7b73",
     "url": "/bilheteria-online-frontend/static/css/2.8347cf0b.chunk.css"
   },
   {
-    "revision": "5c1c7ff61e537bb564f3",
-    "url": "/bilheteria-online-frontend/static/css/main.43e7597b.chunk.css"
+    "revision": "61286142ac626cc89ff0",
+    "url": "/bilheteria-online-frontend/static/css/main.68a60eb0.chunk.css"
   },
   {
-    "revision": "65a4e515031418610da7",
-    "url": "/bilheteria-online-frontend/static/js/2.0091a52b.chunk.js"
+    "revision": "299bb67a443aed2c7b73",
+    "url": "/bilheteria-online-frontend/static/js/2.24a11143.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/bilheteria-online-frontend/static/js/2.0091a52b.chunk.js.LICENSE.txt"
+    "url": "/bilheteria-online-frontend/static/js/2.24a11143.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5c1c7ff61e537bb564f3",
-    "url": "/bilheteria-online-frontend/static/js/main.65d78127.chunk.js"
+    "revision": "61286142ac626cc89ff0",
+    "url": "/bilheteria-online-frontend/static/js/main.fbb7bfcf.chunk.js"
   },
   {
     "revision": "b8d8504e06eacd9473f1",
@@ -36,8 +36,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bilheteria-online-frontend/static/media/bloodshot-banner.ec50c89a.jpg"
   },
   {
+    "revision": "6611645bd370943ebc7139d4062b9377",
+    "url": "/bilheteria-online-frontend/static/media/chip.6611645b.png"
+  },
+  {
     "revision": "6340f629fd035514b2cca23108a5d4ef",
     "url": "/bilheteria-online-frontend/static/media/image.6340f629.jpg"
+  },
+  {
+    "revision": "1b0500b884b3eab05a65d56972a071fb",
+    "url": "/bilheteria-online-frontend/static/media/mastercard.1b0500b8.png"
   },
   {
     "revision": "04eb8fc57f27498e5ae37523e3bfb2c7",
