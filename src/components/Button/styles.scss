@@ -13,14 +13,47 @@
     margin-right: 0;
   }
   &.primary {
-    background: $primary;
+    background: $primary !important;
     color: $white;
     &:hover {
       color: $white;
-      background: darken($primary, 3%);
+      background: darken($primary, 3%) !important;
     }
     &:active {
-      background: darken($primary, 8%);
+      background: darken($primary, 8%) !important;
+    }
+  }
+  &.secondary {
+    background: $secondary !important;
+    color: $white;
+    &:hover {
+      color: $white;
+      background: darken($secondary, 3%) !important;
+    }
+    &:active {
+      background: darken($secondary, 8%) !important;
+    }
+  }
+  &.tertiary {
+    background: $tertiary !important;
+    color: $white;
+    &:hover {
+      color: $white;
+      background: darken($tertiary, 3%) !important;
+    }
+    &:active {
+      background: darken($tertiary, 8%) !important;
+    }
+  }
+  &.green {
+    background: $green;
+    color: $white;
+    &:hover {
+      color: $white;
+      background: darken($green, 3%);
+    }
+    &:active {
+      background: darken($green, 8%);
     }
   }
   &.sm {
@@ -68,10 +101,10 @@
     }
     &:hover {
       color: $white;
-      background: rgba($white, 0.1) !important;
+      background: rgba($white, 0.1);
     }
     &:active {
-      background: rgba($white, 0.07) !important;
+      background: rgba($white, 0.07);
     }
   }
   svg {

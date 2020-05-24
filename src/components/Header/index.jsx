@@ -8,7 +8,7 @@ import "./styles.scss";
 export default () => {
   const history = useHistory();
   const [scrolled, setScrolled] = useState();
-  const [logged, setLogged] = useState(false);
+  const logged = false;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,14 +30,14 @@ export default () => {
         style={{ opacity: scrolled ? "1" : "0" }}
         onClick={() => history.push(`/home`)}
       >
-        <img src={logoLight} alt="Bilheteria" height="40" />
+        {scrolled && <img src={logoLight} alt="Bilheteria" height="40" />}
       </div>
       {!logged && (
-        <section style={{ opacity: scrolled ? "1" : "0" }}>
+        <section className="actions">
           <Button type="outline sm" onClick={() => history.push(`/login`)}>
             Entrar
           </Button>
-          <Button type="primary sm" onClick={() => history.push(`/register`)}>
+          <Button type="secondary sm" onClick={() => history.push(`/register`)}>
             Cadastrar
           </Button>
         </section>

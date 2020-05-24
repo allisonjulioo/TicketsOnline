@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FaPlay, FaStar, FaHeart, FaClock } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 import MovieSlider from "@/components/MovieSlider";
 import Button from "@/components/Button";
 import img from "@/assets/banner.png";
 import "./styles.scss";
 
 export default () => {
+  const history = useHistory();
   const hours = ["11h45", "15h30", "18h00", "22h20"];
   const cinemas = [
     {
@@ -19,6 +21,7 @@ export default () => {
       sections: ["15h30", "18h00"],
     },
   ];
+  const [selectedCinema, setSelectedCinema] = useState(cinemas[0].name);
   const [selectHour, setSelectHour] = useState(hours[0]);
   return (
     <div id="single">
@@ -65,7 +68,10 @@ export default () => {
               {hours.map((hr) => (
                 <Button
                   key={hr}
-                  onClick={() => setSelectHour(hr)}
+                  onClick={() => {
+                    setSelectHour(hr);
+                    setSelectedCinema(cinemas[0].name);
+                  }}
                   type={`${selectHour === hr ? "outline" : "light"} sm`}
                 >
                   {hr}
@@ -76,11 +82,21 @@ export default () => {
           <div>
             <h4 className="title">CINEMAS</h4>
             <section className="row wrap cinemas">
-              {cinemas.map((cin, index) => {
+              {cinemas.map((cin) => {
                 if (cin.sections.includes(selectHour)) {
-                  return <img key={cin.name} src={cin.logo} alt="" />;
+                  return (
+                    <figure
+                      key={cin.name}
+                      className={`${
+                        selectedCinema === cin.name ? "active" : ""
+                      } selectCine`}
+                      onClick={() => setSelectedCinema(cin.name)}
+                    >
+                      <img src={cin.logo} alt="" />
+                    </figure>
+                  );
                 }
-                return ''
+                return "";
               })}
             </section>
           </div>
@@ -100,7 +116,9 @@ export default () => {
         </div>
         <div className="cta">
           <h5>Bora assistir com um desconto?</h5>
-          <Button type="primary">ESCOLHER MEU LUGAR</Button>
+          <Button type="primary" onClick={() => history.push(`/movie/1/place`)}>
+            ESCOLHER MEU LUGAR
+          </Button>
         </div>
         <div className="others">
           <h4 className="title">OUTRO TÍTULOS</h4>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
+import api from "../../../services";
 import "./styles.scss";
 import Button from "@/components/Button";
 
@@ -16,21 +17,17 @@ export default () => {
   async function register(event) {
     setLoading(true);
     event.preventDefault();
-    await fetch("http://localhost:4567/addUsuario", {
+    api("addUsuario", {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ cpf, name, address, password, birth, sex }),
+      body: { cpf, name, address, password, birth, sex },
     })
-      .then(() => {
+      .then(async () => {
+        alert(await "Cadastrado com sucesso");
         setLoading(false);
-        alert("Cadastro realizado com sucesso");
       })
-      .catch((err) => {
+      .catch(async () => {
+        alert(await "Erro ao cadastrar");
         setLoading(false);
-        alert("Erro ao cadastrar");
       });
   }
 

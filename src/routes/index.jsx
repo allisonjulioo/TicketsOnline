@@ -3,6 +3,7 @@ import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 
 import Home from "@/pages/Site/Home";
 import Single from "@/pages/Site/Single";
+import ChoosePlace from "@/pages/Site/ChoosePlace";
 
 import AuthLogin from "@/pages/Auth/Login";
 import AuthRegister from "@/pages/Auth/Register";
@@ -14,15 +15,15 @@ const Routes = ({ history }) => {
   function setHomeRouter(e) {
     if (e && e.location && e.location.pathname) {
       document.body.classList = "";
-      document.body.classList.add(
-        e.location.pathname.replace("/", "").toLowerCase()
-      );
+      const urlArr = e.location.pathname.split("/");
+      document.body.classList.add(urlArr[urlArr.length - 1] || "");
     }
   }
   return (
     <Switch>
       <Route path="/main" component={Home} />
-      <Route path="/movie/:id" component={Single} />
+      <Route path="/movie/:id" exact component={Single} />
+      <Route path="/movie/:id/place" component={ChoosePlace} />
       <Route path="/login" component={AuthLogin} />
       <Route path="/register" component={AuthRegister} />
       <Route path="/new/movie" component={RegisterMovie} />

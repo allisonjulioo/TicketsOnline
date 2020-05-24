@@ -37,7 +37,7 @@ h2 {
 ul {
   list-style: none;
 }
-.row > .container {
+.main .row > .container {
   margin-left: 48px;
   width: calc(100% - 48px);
   @media (max-width: 981px) {
