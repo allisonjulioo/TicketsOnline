@@ -2,7 +2,7 @@
 
 #invoice {
   position: relative;
-  background: lighten($black, 6%);
+  background: lighten($black, 12%);
   margin: 1em 0;
   .details {
     margin-top: 1em;
@@ -17,6 +17,9 @@
       }
       strong {
         font-size: 13px;
+      }
+      @media (max-width: 981px) {
+        margin: 1em 0;
       }
     }
     @media (max-width: 981px) {

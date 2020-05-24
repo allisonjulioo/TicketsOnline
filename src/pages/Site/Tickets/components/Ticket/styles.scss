@@ -1,7 +1,6 @@
 @import "@/styles/";
 
 #ticket {
-  margin: 1em;
   .cardWrap {
     border: 1px solid $black;
     width: 100%;
@@ -148,7 +147,7 @@
 
   .barcode {
     @include flex-center-center;
-     img {
+    img {
       height: 60px;
     }
   }

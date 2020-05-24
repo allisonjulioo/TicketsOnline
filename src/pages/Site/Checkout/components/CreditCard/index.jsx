@@ -14,7 +14,7 @@ export default () => {
     str[0] = str[0].replace(/(\d)(?=(\d{4})+$)/g, "$1,");
     setNumber(str[0].split(","));
   }
-  useEffect(() => creditCardNumber(1214441112121212), []);
+  useEffect(() => creditCardNumber(1111111111111111), []);
 
   return (
     <div id="creditCard">

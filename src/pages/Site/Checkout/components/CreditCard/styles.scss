@@ -14,8 +14,8 @@
     @include flex-center;
     background: linear-gradient(
       to right,
-      lighten($black, 0%) 30%,
-      lighten($black, 2%) 70%
+      darken($secondary, 4%) 30%,
+      darken($secondary, 10%) 70%
     );
     .flag {
       position: absolute;

@@ -1,4 +1,14 @@
 @import "@/styles/";
 
-#tickets {
+.tickets {
+  h4 {
+    text-align: center;
+    color: $green;
+  }
+  p {
+    margin-top: 12px;
+    font-size: 13px;
+    color: $grey;
+    text-align: center;
+  }
 }
