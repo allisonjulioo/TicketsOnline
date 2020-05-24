@@ -25,7 +25,7 @@ form {
     border: 1px solid rgba($grey, 0.1);
     color: $white;
     &:not([value=""]) {
-      border-color: $green;
+      border-color: $grey;
     }
     &:focus {
       background: rgba($white, 0.2);

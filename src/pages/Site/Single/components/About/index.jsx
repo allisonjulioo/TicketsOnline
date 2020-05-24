@@ -29,16 +29,15 @@ export default () => {
         <Button type="secondary">
           <FaPlay /> <span>trailer</span>
         </Button>
-      </div>
-
-      <div className="rating">
-        <div className="starts">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <FaStar key={star} color="#FFC107" />
-          ))}
-          <p htmlFor="">2000 votos</p>
+        <div className="rating">
+          <div className="starts">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <FaStar key={star} color="#FFC107" />
+            ))}
+            <p htmlFor="">2000 votos</p>
+          </div>
+          <h1>9,7</h1>
         </div>
-        <h1>9,7</h1>
       </div>
     </section>
   );

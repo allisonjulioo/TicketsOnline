@@ -30,6 +30,8 @@ export default () => {
     "J10",
     "J12",
     "J13",
+    "J14",
+    "J15",
   ];
   const places = [
     [

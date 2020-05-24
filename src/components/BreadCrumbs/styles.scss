@@ -20,6 +20,9 @@
       background: darken($white, 93%) !important;
       span {
         margin-left: 12px;
+        @media (max-width: 981px) {
+          display: none;
+        }
       }
       &.disabled {
         opacity: 0.8;
@@ -71,6 +74,16 @@
         transform: rotate(45deg) skew(15deg, 15deg);
         transform-origin: center;
         clip-path: polygon(100% 0, 0 0, 100% 100%);
+      }
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+      @media (max-width: 981px) {
+        padding: 0 1em;
+        justify-content: center;
+        text-align: center;
       }
     }
     @media (max-width: 981px) {

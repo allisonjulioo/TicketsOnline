@@ -31,7 +31,10 @@ export default ({ path }) => {
             className={`
             ${path === menu.path ? "active" : ""}
             ${
-              index > breadcrumbs.map((e) => e.path).indexOf(path)
+              index > breadcrumbs.map((e) => e.path).indexOf(path) ||
+              (path === "ticket" &&
+                menu.path !== "main" &&
+                index < breadcrumbs.map((e) => e.path).indexOf(path))
                 ? "disabled"
                 : "passed"
             }
@@ -40,7 +43,7 @@ export default ({ path }) => {
             onClick={() => history.push(menu.url)}
           >
             {React.createElement(FontAwesome[menu.icon])}
-            <span>{menu.name}</span>
+            <span>{menu.name} </span>
           </li>
         ))}
       </ul>

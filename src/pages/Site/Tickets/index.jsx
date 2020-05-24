@@ -1,40 +1,39 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { FaPrint } from "react-icons/fa";
 import banner from "@/assets/banner.png";
-import CreditCard from "./components/CreditCard";
 import BreadCrumbs from "@/components/BreadCrumbs";
+import Ticket from "./components/Ticket";
 import Button from "@/components/Button";
 import "./styles.scss";
-import Invoice from "./components/Invoice";
 
 export default () => {
   const history = useHistory();
+  function printDiv(divName) {
+    window.print();
+  }
   return (
     <div id="checkout">
       <div id="banner" className="banner">
         <div className="title container-md ">
           <h1>Blood Shot 2020</h1>
-          <p>Confirme seu pedido</p>
+          <p>Retire seu ticket</p>
         </div>
         <img src={banner} alt="" />
       </div>
       <div className="container-md">
-        <BreadCrumbs path="checkout" />
+        <BreadCrumbs path="ticket" />
         <div className="body">
-          <h5>Ingressos</h5>
-          <div className="content">
-            <Invoice />
-            <Invoice />
-            <div className="payments"></div>
+          <div className="content" id="tickets">
+            <Ticket seat="g22" />
+            <Ticket seat="g23" />
           </div>
         </div>
-        <h5>Pagamento</h5>
-        <CreditCard />
-        <Button
-          type="primary confirm"
-          onClick={() => history.push("/movie/2/ticket")}
-        >
-          PAGAR R$ 60,00
+        <Button type="light  " onClick={() => history.push('/main')}>
+          <FaPrint /> voltar para a home
+        </Button>
+        <Button type="primary confirm" onClick={() => printDiv("ticket")}>
+          <FaPrint /> imprimir
         </Button>
       </div>
     </div>

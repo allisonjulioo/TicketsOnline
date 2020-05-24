@@ -14,6 +14,18 @@ body {
   min-height: 100vh;
   display: block;
   background-color: lighten($black, 1%);
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: lighten($black, 4%);
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 4px;
+    background-color: lighten($black, 12%);
+  }
 }
 * {
   margin: 0;
@@ -54,5 +66,19 @@ ul {
   user-select: none;
   img {
     filter: brightness(0) invert(1);
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #tickets * {
+    visibility: visible;
+  }
+  #tickets {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }

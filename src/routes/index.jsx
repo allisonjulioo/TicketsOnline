@@ -6,6 +6,7 @@ import Home from "@/pages/Site/Home";
 import Single from "@/pages/Site/Single";
 import ChoosePlace from "@/pages/Site/ChoosePlace";
 import Checkout from "../pages/Site/Checkout";
+import Tickets from "../pages/Site/Tickets";
 
 // auth
 import AuthLogin from "@/pages/Auth/Login";
@@ -19,7 +20,9 @@ const Routes = ({ history }) => {
     if (e && e.location && e.location.pathname) {
       document.body.classList = "";
       const urlArr = e.location.pathname.split("/");
-      document.body.classList.add(urlArr[urlArr.length - 1] || "");
+      if (urlArr[urlArr.length - 1]) {
+        document.body.classList.add(urlArr[urlArr.length - 1] || "");
+      }
     }
   }
   return (
@@ -28,6 +31,7 @@ const Routes = ({ history }) => {
       <Route path="/movie/:id" exact component={Single} />
       <Route path="/movie/:id/place" component={ChoosePlace} />
       <Route path="/movie/:id/checkout" component={Checkout} />
+      <Route path="/movie/:id/ticket" component={Tickets} />
       <Route path="/login" component={AuthLogin} />
       <Route path="/register" component={AuthRegister} />
       <Route path="/new/movie" component={RegisterMovie} />
