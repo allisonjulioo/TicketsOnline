@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
 import "./styles.scss";
 
 export default () => {
+  const history = useHistory();
   const [open, setOpen] = useState(false);
   const classes = ["user", "nav-item", "items", "menu-item"];
   useEffect(() => {
@@ -34,7 +36,13 @@ export default () => {
                   <FaCog />
                   <span>Configurações</span>
                 </li>
-                <li className="menu-item">
+                <li
+                  className="menu-item"
+                  onClick={() => {
+                    localStorage.clear();
+                    history.push("/main");
+                  }}
+                >
                   <FaSignOutAlt />
                   <span>Sair</span>
                 </li>

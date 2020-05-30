@@ -29,6 +29,7 @@ export default () => {
         console.log(err);
         setLoading(false);
         alert("Erro ao Logar, usuário ou senha inválidos");
+        history.push(`/home`);
       });
   }
 
