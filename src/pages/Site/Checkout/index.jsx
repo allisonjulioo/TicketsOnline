@@ -23,8 +23,9 @@ export default () => {
         <div className="body">
           <h5>Ingressos</h5>
           <div className="content">
-            <Invoice />
-            <Invoice />
+            {["A5", "A6"].map((chair, index) => (
+              <Invoice chair={chair} key={index} />
+            ))}
             <div className="payments"></div>
           </div>
         </div>

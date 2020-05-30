@@ -29,8 +29,8 @@ export default () => {
           </h4>
           <p>Imprima aqui sues ingressos</p>
           <div className="content" id="tickets">
-            <Ticket seat="g22" />
-            <Ticket seat="g23" />
+            <Ticket seat="A5" />
+            <Ticket seat="A6" />
           </div>
         </div>
         <Button type="light  " onClick={() => history.push("/main")}>

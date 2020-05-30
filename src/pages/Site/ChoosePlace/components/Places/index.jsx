@@ -6,6 +6,10 @@ import chairIcon from "@/assets/chair-icon.png";
 import { useState } from "react";
 
 export default () => {
+  const params = new URLSearchParams(window.location.search);
+  const session = params.get(["session", "cinema"]);
+  console.log(params);
+
   const history = useHistory();
   function selectChairs(chair) {
     const hasIncluded = selectedChairs.includes(chair);
@@ -44,7 +48,7 @@ export default () => {
       ["G1", "G2", "G3", "G4", "G5"],
       ["H1", "H2", "H3", "H4", "H5"],
       ["I1", "I2", "I3", "I4", "I5"],
-    ],
+    ].reverse(),
     [
       ["A6", "A7", "A8", "A9", "A10"],
       ["B6", "B7", "B8", "B9", "B10"],
@@ -55,20 +59,30 @@ export default () => {
       ["G6", "G7", "G8", "G9", "G10"],
       ["H6", "H7", "H8", "H9", "H10"],
       ["I6", "I7", "I8", "I9", "I10"],
-    ],
+    ].reverse(),
   ];
   return (
     <div id="places">
+      {selectedChairs.length === 6 && (
+        <p className="text-danger">Limite de 6 assentos por compra atingido</p>
+      )}
       <div className="row">
         {background.map((chair) => (
           <Button
             type={`icon ${
               selectedChairs.includes(chair) ? "secondary" : "light"
-            } `}
+            } ${
+              selectedChairs.length > 5 && !selectedChairs.includes(chair)
+                ? "fully"
+                : ""
+            }`}
             key={chair}
             onClick={() => selectChairs(chair)}
           >
             <img src={chairIcon} alt="" width="20" height="20" />
+            <p>
+              <small>{chair}</small>
+            </p>
           </Button>
         ))}
       </div>
@@ -81,11 +95,19 @@ export default () => {
                   <Button
                     type={`icon ${
                       selectedChairs.includes(chair) ? "secondary" : "light"
-                    } `}
+                    } ${
+                      selectedChairs.length > 5 &&
+                      !selectedChairs.includes(chair)
+                        ? "fully"
+                        : ""
+                    }`}
                     key={index}
                     onClick={() => selectChairs(chair, index)}
                   >
                     <img src={chairIcon} alt="" width="20" height="20" />
+                    <p>
+                      <small>{chair}</small>
+                    </p>
                   </Button>
                 ))}
               </div>
@@ -94,7 +116,10 @@ export default () => {
         ))}
       </div>
       <div className="screen">tela</div>
-      <Button type="primary confirm" onClick={() => history.push('/movie/2/checkout')}>
+      <Button
+        type="primary confirm"
+        onClick={() => history.push(`/movie/2/checkout`)}
+      >
         <p>CONFIRMAR LUGARES</p>
         <small>{selectedChairs.join(",  ")}</small>
       </Button>

@@ -8,7 +8,7 @@ import "./styles.scss";
 export default () => {
   const history = useHistory();
   const [scrolled, setScrolled] = useState();
-  const logged = true;
+  const logged = localStorage.getItem("logged");
 
   useEffect(() => {
     const handleScroll = () => {

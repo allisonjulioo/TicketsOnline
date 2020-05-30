@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import api from "../../../services";
+import api from "@/services";
 import "./styles.scss";
 import Button from "@/components/Button";
 
@@ -21,12 +21,14 @@ export default () => {
       method: "POST",
       body: { cpf, name, address, password, birth, sex },
     })
-      .then(async () => {
-        alert(await "Cadastrado com sucesso");
+      .then(async (data) => {
+        console.log(data);
+        alert("Cadastrado com sucesso");
         setLoading(false);
       })
-      .catch(async () => {
-        alert(await "Erro ao cadastrar");
+      .catch(async (err) => {
+        console.log(err);
+        alert("Erro ao cadastrar");
         setLoading(false);
       });
   }

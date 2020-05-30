@@ -91,7 +91,14 @@ export default () => {
           </p>
         </div>
         <div className="cta">
-          <Button type="primary" onClick={() => history.push(`/movie/1/place`)}>
+          <Button
+            type="primary"
+            onClick={() =>
+              history.push(
+                `/movie/1/place`
+              )
+            }
+          >
             ESCOLHER MEU LUGAR
           </Button>
         </div>

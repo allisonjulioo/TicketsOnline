@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import api from "@/services";
 import "./styles.scss";
 import { useHistory } from "react-router-dom";
 import Button from "@/components/Button";
@@ -13,22 +14,19 @@ export default () => {
   async function login(event) {
     event.preventDefault();
     setLoading(true);
-    await fetch("http://localhost:4567/login", {
+    api("login", {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        cpf,
-        password,
-      }),
+      body: { cpf, password },
     })
-      .then(() => {
+      .then((data) => {
+        console.log(data);
         setLoading(false);
+        localStorage.setItem("logged", true);
+        alert("Login realizado com sucesso");
         history.push(`/home`);
       })
       .catch((err) => {
+        console.log(err);
         setLoading(false);
         alert("Erro ao Logar, usuário ou senha inválidos");
       });

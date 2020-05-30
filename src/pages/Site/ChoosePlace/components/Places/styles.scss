@@ -49,4 +49,9 @@
     overflow-x: auto;
     background: lighten($black, 14%);
   }
+  .fully {
+    pointer-events: none;
+    opacity: 0.2;
+    cursor: pointer;
+  }
 }
