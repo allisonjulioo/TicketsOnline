@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import logoLight from "@/assets/logo-light.png";
 import Button from "@/components/Button";
@@ -6,6 +7,9 @@ import UserDropdown from "./components/Dropdown";
 import "./styles.scss";
 
 export default () => {
+  const isAdmin = useSelector((state) => state.isAdmin);
+  // TODO refatorar userSelector mutando variavel isAdmin
+
   const history = useHistory();
   const [scrolled, setScrolled] = useState();
   const logged = localStorage.getItem("logged");
@@ -24,20 +28,37 @@ export default () => {
     };
   }, []);
   return (
-    <div id="header" className={scrolled ? "scrolled" : ""}>
+    <div
+      id="header"
+      className={(scrolled ? "scrolled" : "", isAdmin ? "admin" : "")}
+    >
       <div
         className="branding"
-        style={{ opacity: scrolled ? "1" : "0" }}
-        onClick={() => history.push(`/home`)}
+        style={{ opacity: scrolled || isAdmin ? "1" : "0" }}
+        onClick={() => history.push(`/main`)}
       >
+        {isAdmin && (
+          <img
+            src={logoLight}
+            alt="Bilheteria"
+            className="admin-branding"
+            height="40"
+          />
+        )}
         {scrolled && <img src={logoLight} alt="Bilheteria" height="40" />}
       </div>
       {!logged && (
         <section className="actions">
-          <Button type="outline sm" onClick={() => history.push(`/login`)}>
+          <Button
+            type={`${isAdmin ? "primary" : "outline"} sm`}
+            onClick={() => history.push(`/auth/login`)}
+          >
             Entrar
           </Button>
-          <Button type="secondary sm" onClick={() => history.push(`/register`)}>
+          <Button
+            type="secondary sm"
+            onClick={() => history.push(`/auth/register`)}
+          >
             Cadastrar
           </Button>
         </section>

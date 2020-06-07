@@ -17,6 +17,13 @@
     transition: all ease 0.4s;
     background: $black;
   }
+  .admin-branding {
+    filter: invert(70%);
+  }
+  &.admin {
+    background: $white;
+    box-shadow: 0 2px 7px 0px rgba($grey, 0.4);
+  }
   .branding {
     cursor: pointer;
   }

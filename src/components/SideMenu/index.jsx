@@ -9,11 +9,12 @@ export default () => {
   const [active, setActive] = useState("Início");
   const [compress, setCompress] = useState(true);
   const menu = [
-    { name: "Início", icon: "FaHome" },
-    { name: "Tendências", icon: "FaBolt" },
-    { name: "Em breve", icon: "FaClock" },
-    { name: "Favoritos", icon: "FaHeart" },
-    { name: "Assistir depois", icon: "FaBell" },
+    { name: "Início", icon: "FaHome", url: "/" },
+    { name: "Tendências", icon: "FaBolt", url: "/" },
+    { name: "Em breve", icon: "FaClock", url: "/" },
+    { name: "Favoritos", icon: "FaHeart", url: "/" },
+    { name: "Assistir depois", icon: "FaBell", url: "/" },
+    { name: "Admin", icon: "FaCalculator", url: "/admin/dashboard" },
   ];
   return (
     <div id="side-menu" className="compress">
@@ -26,7 +27,7 @@ export default () => {
           const icon = React.createElement(FontAwesome[menu.icon]);
           return (
             <Link
-              to="/"
+              to={menu.url}
               key={index}
               onClick={() => {
                 setActive(menu.name);

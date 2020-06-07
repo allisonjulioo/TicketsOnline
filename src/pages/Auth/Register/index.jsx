@@ -102,10 +102,10 @@ export default () => {
           Realizar Cadastro
         </Button>
         <small>
-          Já é cadastrado? então <Link to="/login">entre</Link> na sua conta
+          Já é cadastrado? então <Link to="/auth/login">entre</Link> na sua conta
         </small>
       </form>
-      <Button onClick={() => history.push(`/home`)} type="light">
+      <Button onClick={() => history.push(`/main`)} type="light">
         Voltar para a home
       </Button>
     </div>

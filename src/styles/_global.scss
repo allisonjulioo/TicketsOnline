@@ -26,6 +26,10 @@ body {
     width: 4px;
     background-color: lighten($black, 12%);
   }
+  &.admin {
+    background: $white;
+    color: $black;
+  }
 }
 * {
   margin: 0;

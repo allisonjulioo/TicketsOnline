@@ -18,18 +18,19 @@ export default () => {
       method: "POST",
       body: { cpf, password },
     })
-      .then((data) => {
-        console.log(data);
-        setLoading(false);
-        localStorage.setItem("logged", true);
-        alert("Login realizado com sucesso");
-        history.push(`/home`);
-      })
+      .then(
+        (data) => {
+          console.log(data);
+          setLoading(false);
+          localStorage.setItem("logged", true);
+          history.push(`/main`);
+        },
+        (result) => console.log(result)
+      )
       .catch((err) => {
         console.log(err);
         setLoading(false);
-        alert("Erro ao Logar, usuário ou senha inválidos");
-        history.push(`/home`);
+        history.push(`/main`);
       });
   }
 
@@ -60,11 +61,11 @@ export default () => {
           Login
         </Button>
         <small>
-          Não possui conta? Clique <Link to="/register">aqui</Link> para se
+          Não possui conta? Clique <Link to="/auth/register">aqui</Link> para se
           cadastrar
         </small>
       </form>
-      <Button onClick={() => history.push(`/home`)} type="light">
+      <Button onClick={() => history.push(`/main`)} type="light">
         Voltar para a home
       </Button>
     </div>
