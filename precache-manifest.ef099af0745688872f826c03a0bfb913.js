@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "755026a0b3cfb1846b016dfed2723a46",
+    "revision": "d381cfbb207f75faf6855c577fdb05c4",
     "url": "/bilheteria-online-frontend/index.html"
   },
   {
-    "revision": "299bb67a443aed2c7b73",
+    "revision": "f697c75da414b70a718c",
     "url": "/bilheteria-online-frontend/static/css/2.8347cf0b.chunk.css"
   },
   {
-    "revision": "fa7c727a5f78036c3a7d",
-    "url": "/bilheteria-online-frontend/static/css/main.fd3ebbed.chunk.css"
+    "revision": "1f8f8a1d63b4677c9302",
+    "url": "/bilheteria-online-frontend/static/css/main.f1604e54.chunk.css"
   },
   {
-    "revision": "299bb67a443aed2c7b73",
-    "url": "/bilheteria-online-frontend/static/js/2.24a11143.chunk.js"
+    "revision": "f697c75da414b70a718c",
+    "url": "/bilheteria-online-frontend/static/js/2.d0b14b13.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/bilheteria-online-frontend/static/js/2.24a11143.chunk.js.LICENSE.txt"
+    "url": "/bilheteria-online-frontend/static/js/2.d0b14b13.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fa7c727a5f78036c3a7d",
-    "url": "/bilheteria-online-frontend/static/js/main.62f3b860.chunk.js"
+    "revision": "1f8f8a1d63b4677c9302",
+    "url": "/bilheteria-online-frontend/static/js/main.443804f9.chunk.js"
   },
   {
     "revision": "b8d8504e06eacd9473f1",
@@ -58,9 +58,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "2feb69ccb596730c72920c6ba3e37ef8",
     "url": "/bilheteria-online-frontend/static/media/revicons.2feb69cc.eot"
-  },
-  {
-    "revision": "02ab0a261f80d923491a99f6a1c57e61",
-    "url": "/bilheteria-online-frontend/static/media/viuva-negra.02ab0a26.jpg"
   }
 ]);
