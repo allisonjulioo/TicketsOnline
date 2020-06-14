@@ -56,14 +56,18 @@ export default (props) => {
           ))}
         </div>
         <div className="charts">
-          <div
-            className="card"
-            style={{
-              width: "400px",
-              height: "300px",
-            }}
-          >
-            <Chart data={data} axes={axes} tooltip />
+          <div className="card">
+            <div>
+              <Chart
+                data={data}
+                axes={axes}
+                tooltip
+                style={{
+                  width: "400px",
+                  height: "300px",
+                }}
+              />
+            </div>
           </div>
         </div>
         <Link to="/">

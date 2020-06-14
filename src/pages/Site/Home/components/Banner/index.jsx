@@ -2,12 +2,11 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { FaPlay, FaStar } from "react-icons/fa";
 import Button from "@/components/Button";
-import img from "@/assets/banner.png";
 import "./styles.scss";
 
 export default ({ movie }) => {
   const history = useHistory();
-  const { id, name, synopsis } = movie;
+  const { id, name, synopsis, poster } = movie;
   return (
     <div id="banner">
       <div className="title">
@@ -33,7 +32,7 @@ export default ({ movie }) => {
           </Button>
         </div>
       </div>
-      <img src={img} alt="" />
+      <img src={poster} alt="" />
     </div>
   );
 };
