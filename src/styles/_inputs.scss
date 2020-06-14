@@ -55,3 +55,19 @@ form {
     }
   }
 }
+
+.admin {
+  #header {
+    position: relative;
+  }
+  form {
+    background: $white;
+    input {
+      color: $black;
+    }
+  }
+  .header h1 {
+    margin: 1em 0;
+    color: $black;
+  }
+}
