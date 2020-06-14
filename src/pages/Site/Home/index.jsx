@@ -9,7 +9,9 @@ import Categories from "./components/Categories";
 import "./styles.scss";
 
 export default () => {
-  const [banner, setBanner] = useState([{ name: "Cinema", poster: bn, id: 1 }]);
+  const [banner, setBanner] = useState([
+    { name: "Cinema", categoryList: ["ACAO"], poster: bn, id: 1 },
+  ]);
   async function getAllMovies() {
     await api("getAllMovies")
       .then((res) => res.json())
@@ -27,9 +29,11 @@ export default () => {
     <div id="home">
       <SideMenu />
       <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
-        {banner.filter(m => m.carousel).map((mv, index) => (
-          <Banner movie={mv} key={index} />
-        ))}
+        {banner
+          .filter((m) => m.carousel)
+          .map((mv, index) => (
+            <Banner movie={mv} key={index} />
+          ))}
       </Carousel>
       <div className="container">
         <h4 className="title">Populares</h4>
@@ -37,7 +41,7 @@ export default () => {
       </div>
       <div className="container">
         <h4 className="title">Categorias</h4>
-        <Categories />
+        <Categories movies={banner} />
       </div>
     </div>
   );

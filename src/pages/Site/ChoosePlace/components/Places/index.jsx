@@ -8,8 +8,6 @@ import { useState } from "react";
 export default () => {
   const params = new URLSearchParams(window.location.search);
   const session = params.get(["session", "cinema"]);
-  console.log(params);
-
   const history = useHistory();
   function selectChairs(chair) {
     const hasIncluded = selectedChairs.includes(chair);
