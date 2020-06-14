@@ -34,7 +34,7 @@ export default ({ user }) => {
               <ul className="items">
                 <li className="menu-item">
                   <FaCog />
-                  <span>Configurações</span>
+                  <span>Perfil</span>
                 </li>
                 <li
                   className="menu-item"

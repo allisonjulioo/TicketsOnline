@@ -19,6 +19,8 @@ export default () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        cpf: JSON.parse(localStorage.getItem("user")).cpf,
+        password: JSON.parse(localStorage.getItem("user")).password,
         title,
         year,
         releaseData,
