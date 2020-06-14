@@ -17,4 +17,22 @@
       margin-right: 0;
     }
   }
+  .tab {
+    background: #fff;
+    margin: 1em 0;
+    button {
+      background-color: inherit;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      &:hover {
+        background-color: #ddd;
+      }
+      &.active {
+        background-color: #ccc;
+      }
+    }
+  }
 }

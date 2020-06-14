@@ -43,10 +43,27 @@ export default (props) => {
     ],
     []
   );
+  function openCity(event, string) {
+    console.log(event, string);
+  }
   return (
     <div id="dashboard" className="container" style={{ padding: "2em" }}>
       <h3>Dashboard</h3>
       <div className="container">
+        <div className="tab">
+          <button
+            className="tablinks"
+            onClick={(event) => openCity(event, "London")}
+          >
+            London
+          </button>
+          <button className="tablinks" onClick={(event) => openCity(event, "Paris")}>
+            Paris
+          </button>
+          <button className="tablinks" onClick={(event) => openCity(event, "Tokyo")}>
+            Tokyo
+          </button>
+        </div>
         <div className="card-list">
           {cards.map((card, index) => (
             <div className="card" key={index}>

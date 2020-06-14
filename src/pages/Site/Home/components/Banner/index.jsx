@@ -6,7 +6,7 @@ import "./styles.scss";
 
 export default ({ movie }) => {
   const history = useHistory();
-  const { id, name, synopsis, poster } = movie;
+  const { id, name, synopsis } = movie;
   const img = require(`@/assets/${movie.name
     .toLocaleLowerCase()
     .replace(" ", "_")}.jpg`);

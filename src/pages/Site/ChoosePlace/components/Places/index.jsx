@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "@/components/Button";
 import "./styles.scss";
 import chairIcon from "@/assets/chair-icon.png";
-import { useState } from "react";
 
 export default () => {
-  const params = new URLSearchParams(window.location.search);
-  const session = params.get(["session", "cinema"]);
   const history = useHistory();
   function selectChairs(chair) {
     const hasIncluded = selectedChairs.includes(chair);

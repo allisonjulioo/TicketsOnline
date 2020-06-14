@@ -59,7 +59,9 @@ export default () => {
             <div className="valid">{valid}</div>
           </div>
         </div>
-        <div className="back"></div>
+        <div className="back">
+          {security}
+        </div>
       </div>
     </div>
   );

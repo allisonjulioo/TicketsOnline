@@ -10,13 +10,26 @@
   .banner {
     position: relative;
     margin: 1em 0;
+    .bg {
+      filter: blur(16px);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
     button {
       position: absolute;
       bottom: 1em;
       right: 1em;
     }
     img {
-      width: 100%;
+      width: 202px;
+      display: block;
+      margin: 0 auto;
+      z-index: +1;
+      position: relative;
       @media (max-width: 981px) {
         display: flex !important;
       }

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import MovieSlider from "@/components/MovieSlider";
 import "./styles.scss";
-import { useEffect } from "react";
 
 export default ({ movies }) => {
   const arr = movies.map((mv) => mv.categoryList);
   const concat = [].concat.apply([], [...arr]);
-  const categories = concat.filter((item, pos) => concat.indexOf(item) == pos);
+  const categories = concat.filter((item, pos) => concat.indexOf(item) === pos);
   const [active, setActive] = useState(categories[0]);
   const [moviesBy, setMoviesBy] = useState([]);
 

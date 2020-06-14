@@ -4,7 +4,7 @@ import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 
 // site
 import Home from "@/pages/Site/Home";
-import Single from "@/pages/Site/Single";
+import Session from "@/pages/Site/Session";
 import ChoosePlace from "@/pages/Site/ChoosePlace";
 import Checkout from "../pages/Site/Checkout";
 import Tickets from "../pages/Site/Tickets";
@@ -20,6 +20,7 @@ import NewMovie from "../pages/Admin/NewMovie";
 const Routes = ({ history }) => {
   const dispatch = useDispatch();
   setHomeRouter(history);
+  // eslint-disable-next-line
   useEffect(() => history.listen((e) => setHomeRouter(e)), [history]);
   function setHomeRouter(e) {
     if (e && e.location && e.location.pathname) {
@@ -38,7 +39,7 @@ const Routes = ({ history }) => {
   return (
     <Switch>
       <Route path="/main" component={Home} />
-      <Route path="/movie/:id" exact component={Single} />
+      <Route path="/movie/:id" exact component={Session} />
       <Route path="/movie/:id/place" component={ChoosePlace} />
       <Route path="/movie/:id/checkout" component={Checkout} />
       <Route path="/movie/:id/ticket" component={Tickets} />
