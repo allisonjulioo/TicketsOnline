@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/bilheteria-online-frontend/static/css/main.f1604e54.chunk.css",
-    "main.js": "/bilheteria-online-frontend/static/js/main.443804f9.chunk.js",
-    "main.js.map": "/bilheteria-online-frontend/static/js/main.443804f9.chunk.js.map",
+    "main.css": "/bilheteria-online-frontend/static/css/main.334823d6.chunk.css",
+    "main.js": "/bilheteria-online-frontend/static/js/main.d22acf6b.chunk.js",
+    "main.js.map": "/bilheteria-online-frontend/static/js/main.d22acf6b.chunk.js.map",
     "runtime-main.js": "/bilheteria-online-frontend/static/js/runtime-main.404ee5c2.js",
     "runtime-main.js.map": "/bilheteria-online-frontend/static/js/runtime-main.404ee5c2.js.map",
     "static/css/2.8347cf0b.chunk.css": "/bilheteria-online-frontend/static/css/2.8347cf0b.chunk.css",
     "static/js/2.d0b14b13.chunk.js": "/bilheteria-online-frontend/static/js/2.d0b14b13.chunk.js",
     "static/js/2.d0b14b13.chunk.js.map": "/bilheteria-online-frontend/static/js/2.d0b14b13.chunk.js.map",
     "index.html": "/bilheteria-online-frontend/index.html",
-    "precache-manifest.ef099af0745688872f826c03a0bfb913.js": "/bilheteria-online-frontend/precache-manifest.ef099af0745688872f826c03a0bfb913.js",
+    "precache-manifest.fdaa285aca08c866df5d7365350c1c24.js": "/bilheteria-online-frontend/precache-manifest.fdaa285aca08c866df5d7365350c1c24.js",
     "service-worker.js": "/bilheteria-online-frontend/service-worker.js",
     "static/css/2.8347cf0b.chunk.css.map": "/bilheteria-online-frontend/static/css/2.8347cf0b.chunk.css.map",
-    "static/css/main.f1604e54.chunk.css.map": "/bilheteria-online-frontend/static/css/main.f1604e54.chunk.css.map",
+    "static/css/main.334823d6.chunk.css.map": "/bilheteria-online-frontend/static/css/main.334823d6.chunk.css.map",
     "static/js/2.d0b14b13.chunk.js.LICENSE.txt": "/bilheteria-online-frontend/static/js/2.d0b14b13.chunk.js.LICENSE.txt",
     "static/media/banner.png": "/bilheteria-online-frontend/static/media/banner.698a6a3e.png",
     "static/media/bloodshot-banner.jpg": "/bilheteria-online-frontend/static/media/bloodshot-banner.ec50c89a.jpg",
@@ -25,7 +25,7 @@
     "static/js/runtime-main.404ee5c2.js",
     "static/css/2.8347cf0b.chunk.css",
     "static/js/2.d0b14b13.chunk.js",
-    "static/css/main.f1604e54.chunk.css",
-    "static/js/main.443804f9.chunk.js"
+    "static/css/main.334823d6.chunk.css",
+    "static/js/main.d22acf6b.chunk.js"
   ]
 }
