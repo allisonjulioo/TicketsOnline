@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import image from "@/assets/image.jpg";
 import "./styles.scss";
 
-export default ({ desk, large, tablet, mobile }) => {
+export default ({ desk, large, tablet, mobile, banner }) => {
+  const [carousel, setCarousel] = useState([]);
+  useEffect(() => {
+    if (banner && banner.length) {
+      setCarousel(banner);
+    }
+  }, [banner]);
+
   const history = useHistory();
   const responsive = {
     superLargeDesktop: {
@@ -32,19 +38,20 @@ export default ({ desk, large, tablet, mobile }) => {
       <Carousel
         responsive={responsive}
         infinite={true}
+        autoPlaySpeed={1000} 
         removeArrowOnDeviceType={["tablet", "mobile"]}
       >
-        {[1, 2, 3, 4, 5].map((item) => (
+        {carousel.map((b, index) => (
           <div
             className="item"
-            key={item}
-            onClick={() => history.push(`/movie/${item}`)}
+            key={index}
+            onClick={() => history.push(`/movie/${b.id}`)}
           >
             <figure>
-              <img src={image} alt="" />
+              <img src={b.poster} alt="" />
             </figure>
             <div className="content">
-              <p className="description">The Dark Tower</p>
+              <p className="description">{b.name}</p>
               <div className="rating">
                 <p>8,1</p>
                 {[1, 2, 3, 4, 5].map((star) => (

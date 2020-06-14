@@ -61,13 +61,9 @@ form {
     position: relative;
   }
   form {
-    background: $white;
-    input {
-      color: $black;
-    }
+    background: transparent;
   }
   .header h1 {
     margin: 1em 0;
-    color: $black;
   }
 }

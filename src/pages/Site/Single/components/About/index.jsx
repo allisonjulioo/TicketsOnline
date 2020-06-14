@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPlay, FaStar, FaHeart, FaClock } from "react-icons/fa";
 import Button from "@/components/Button";
-import bloodshot from "@/assets/bloodshot-banner.jpg";
+import bloodshot from "@/assets/bloodshot.jpg";
 import "./styles.scss";
 
 export default () => {

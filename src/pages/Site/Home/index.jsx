@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import api from "@/services";
 import MovieSlider from "@/components/MovieSlider";
 import SideMenu from "@/components/SideMenu";
 import Banner from "./components/Banner";
+import bn from "@/assets/cinema.jpg";
 import Categories from "./components/Categories";
 import "./styles.scss";
-import { useState } from "react";
-import { useEffect } from "react";
 
 export default () => {
-  const [banner, setBanner] = useState([]);
+  const [banner, setBanner] = useState([{ name: "Cinema", poster: bn, id: 1 }]);
   async function getAllMovies() {
     await api("getAllMovies")
       .then((res) => res.json())
@@ -28,13 +27,13 @@ export default () => {
     <div id="home">
       <SideMenu />
       <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
-        {banner.map((movie, index) => (
-          <Banner movie={movie} key={index} />
+        {banner.filter(m => m.carousel).map((mv, index) => (
+          <Banner movie={mv} key={index} />
         ))}
       </Carousel>
       <div className="container">
         <h4 className="title">Populares</h4>
-        <MovieSlider />
+        <MovieSlider banner={banner} />
       </div>
       <div className="container">
         <h4 className="title">Categorias</h4>

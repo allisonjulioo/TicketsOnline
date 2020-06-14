@@ -7,7 +7,9 @@
   .card {
     padding: 1em;
     margin: 1em;
-    box-shadow: 0 2px 7px 0px rgba($grey, 0.4);
+    background: lighten($grey, 60%);
+    box-shadow: 0 2px 7px 0px rgba($black, 0.4);
+    color: $black;
     &:first-child {
       margin-left: 0;
     }

@@ -85,7 +85,7 @@ export default () => {
             onChange={(event) => setFinalDate(event.target.value)}
           />
         </label>
-        <Button type="primary" disabled={loading}>
+        <Button type="secondary" disabled={loading}>
           Realizar Cadastro
         </Button>
       </form>

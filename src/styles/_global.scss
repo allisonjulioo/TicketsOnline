@@ -27,8 +27,8 @@ body {
     background-color: lighten($black, 12%);
   }
   &.admin {
-    background: $white;
-    color: $black;
+    background: #272727;
+    color: $white;
   }
 }
 * {

@@ -1,18 +1,5 @@
 @import "@/styles/";
-.admin {
-  .icon-button,
-  .dropdown {
-    background: lighten($black, 90%) !important;
-  }
-  .menu-item {
-    &:hover {
-      background-color: lighten($black, 80%) !important;
-    }
-    svg {
-      fill: $black !important;
-    }
-  }
-}
+ 
 #dropdown {
   .user {
     position: relative;

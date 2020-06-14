@@ -7,6 +7,9 @@ import "./styles.scss";
 export default ({ movie }) => {
   const history = useHistory();
   const { id, name, synopsis, poster } = movie;
+  const img = require(`@/assets/${movie.name
+    .toLocaleLowerCase()
+    .replace(" ", "_")}.jpg`);
   return (
     <div id="banner">
       <div className="title">
@@ -32,7 +35,7 @@ export default ({ movie }) => {
           </Button>
         </div>
       </div>
-      <img src={poster} alt="" />
+      <img src={img} alt="" />
     </div>
   );
 };
