@@ -18,12 +18,14 @@ export default () => {
       method: "POST",
       body: { cpf, password },
     })
+      .then((res) => res.json())
       .then(
         (data) => {
-          console.log(data);
-          setLoading(false);
-          localStorage.setItem("logged", true);
-          history.push(`/main`);
+          if (data && data.userType) {
+            setLoading(false);
+            localStorage.setItem("user", JSON.stringify(data));
+            history.push(`/main`);
+          }
         },
         (result) => console.log(result)
       )

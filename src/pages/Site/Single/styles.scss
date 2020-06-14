@@ -104,7 +104,7 @@
     .others {
       .item {
         width: 220px;
-        min-width: 189px;
+        min-width: 100%;
         @media (max-width: 981px) {
           width: 120px;
           min-width: 120px;

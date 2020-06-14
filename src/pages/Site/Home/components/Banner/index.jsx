@@ -2,26 +2,30 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { FaPlay, FaStar } from "react-icons/fa";
 import Button from "@/components/Button";
+import img from "@/assets/banner.png";
 import "./styles.scss";
 
 export default ({ movie }) => {
   const history = useHistory();
-  const { title, description, img } = movie;
+  const { id, name, synopsis } = movie;
   return (
     <div id="banner">
       <div className="title">
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <h1>{name}</h1>
+        <p>{synopsis}</p>
         <div className="rating">
           {[1, 2, 3, 4, 5].map((star) => (
             <FaStar key={star} color="#FFC107" />
           ))}
         </div>
-        <Button type="primary mobile" onClick={() => history.push(`/movie/2`)}>
+        <Button
+          type="primary mobile"
+          onClick={() => history.push(`/movie/${id}`)}
+        >
           <FaPlay />
         </Button>
         <div className="row">
-          <Button type="primary" onClick={() => history.push(`/movie/2`)}>
+          <Button type="primary" onClick={() => history.push(`/movie/${id}`)}>
             ingresso
           </Button>
           <Button type="outline">

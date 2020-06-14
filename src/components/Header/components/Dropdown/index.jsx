@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
 import "./styles.scss";
 
-export default () => {
+export default ({ user }) => {
   const history = useHistory();
   const [open, setOpen] = useState(false);
   const classes = ["user", "nav-item", "items", "menu-item"];
@@ -28,7 +28,7 @@ export default () => {
           <span className="icon-button">
             <FaUser />
           </span>
-          <span>Carlos Germano</span>
+          <span>{user.name.split(" ")[0] + " " + user.name.split(" ")[1]}</span>
           {open && (
             <div className="dropdown">
               <ul className="items">

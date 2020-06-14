@@ -12,7 +12,8 @@ export default () => {
 
   const history = useHistory();
   const [scrolled, setScrolled] = useState();
-  const logged = localStorage.getItem("logged");
+  const user = JSON.parse(localStorage.getItem("user"));
+  const logged = !!user && user.name;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,7 +64,7 @@ export default () => {
           </Button>
         </section>
       )}
-      {logged && <UserDropdown />}
+      {logged && <UserDropdown user={user} />}
     </div>
   );
 };

@@ -21,16 +21,35 @@ export default () => {
       method: "POST",
       body: { cpf, name, address, password, birth, sex },
     })
+      .then((res) => res.json())
       .then(async (data) => {
-        console.log(data);
-        alert("Cadastrado com sucesso");
-        setLoading(false);
+        if (data && data.password) {
+          loginAfterRegister(data);
+        }
       })
       .catch(async (err) => {
         console.log(err);
         alert("Erro ao cadastrar");
         setLoading(false);
       });
+  }
+
+  async function loginAfterRegister({ cpf, password }) {
+    api("login", {
+      method: "POST",
+      body: { cpf, password },
+    })
+      .then((res) => res.json())
+      .then(
+        (data) => {
+          if (data && data.userType) {
+            setLoading(false);
+            localStorage.setItem("user", JSON.stringify(data));
+            history.push(`/main`);
+          }
+        },
+        (result) => console.log(result)
+      );
   }
 
   return (
@@ -102,7 +121,8 @@ export default () => {
           Realizar Cadastro
         </Button>
         <small>
-          Já é cadastrado? então <Link to="/auth/login">entre</Link> na sua conta
+          Já é cadastrado? então <Link to="/auth/login">entre</Link> na sua
+          conta
         </small>
       </form>
       <Button onClick={() => history.push(`/main`)} type="light">
