@@ -31,7 +31,7 @@ export default (props) => {
       qtIngressos: chair.chairs.length,
       valorIngresso: 12,
       valorTotal: chair.chairs.length * 12,
-      chairs: chair.chairs,
+      chairs: chair.chairs.join(","),
       numeroCartao,
       nomeCartao,
       validade,
@@ -41,7 +41,7 @@ export default (props) => {
   }
   function finishOrder(session) {
     console.log(session);
-    
+
     api("transacao", {
       method: "POST",
       body: session,
