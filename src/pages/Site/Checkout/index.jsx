@@ -10,7 +10,6 @@ import Invoice from "./components/Invoice";
 
 export default (props) => {
   const [numeroCartao, setNumber] = useState([]);
-  const [session, setSession] = useState({});
   const [nomeCartao, setName] = useState();
   const [validade, setValid] = useState();
   const [cvv, setSecurity] = useState();
@@ -26,7 +25,7 @@ export default (props) => {
   }
   function checkout() {
     setLoading(true);
-    setSession({
+    const s = {
       user_id: JSON.parse(localStorage.getItem("user")).cpf,
       qtIngressos: chair.chairs.length,
       valorIngresso: 12,
@@ -36,10 +35,12 @@ export default (props) => {
       nomeCartao,
       validade,
       cvv,
-    });
-    finishOrder();
+    };
+    finishOrder(s);
   }
-  function finishOrder() {
+  function finishOrder(session) {
+    console.log(session);
+    
     api("transacao", {
       method: "POST",
       body: session,
