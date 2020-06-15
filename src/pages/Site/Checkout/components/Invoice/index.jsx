@@ -3,7 +3,7 @@ import { FaTrash } from "react-icons/fa";
 import Button from "@/components/Button";
 import "./styles.scss";
 
-export default ({ chair }) => {
+export default ({ chair, index, deleteTicket }) => {
   return (
     <div id="invoice">
       <div className="title">1º Bloodshot</div>
@@ -38,7 +38,11 @@ export default ({ chair }) => {
         </li>
       </ul>
       <div className="subtotal">Subtotal R$ 30,00</div>
-      <Button type="icon" title="Excluir ingresso">
+      <Button
+        type="icon"
+        title="Excluir ingresso"
+        onClick={() => deleteTicket(index, chair)}
+      >
         <FaTrash size={12} color="#505050" />
       </Button>
     </div>

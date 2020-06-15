@@ -1,14 +1,14 @@
 import React from "react";
 import { FaPlay, FaStar, FaHeart, FaClock } from "react-icons/fa";
-import Button from "@/components/Button"; 
+import Button from "@/components/Button";
 import "./styles.scss";
 
-export default ({ poster, categories }) => {
+export default ({ movie }) => {
   return (
     <section id="about">
       <figure className="banner">
-        <div className="bg" style={{ backgroundImage: `url(${poster})` }}></div>
-        <img src={poster} alt="" />
+        <div className="bg" style={{ backgroundImage: `url(${movie.poster})` }}></div>
+        <img src={movie.poster} alt="" />
         <Button type="icon">
           <FaHeart />
         </Button>
@@ -18,10 +18,10 @@ export default ({ poster, categories }) => {
         <div className="infos">
           <label className="info">
             <FaClock />
-            2h 20min
+            {movie.runtime}
           </label>
-          {categories &&
-            categories.map((cat, index) => (
+          {movie.categoryList &&
+            movie.categoryList.map((cat, index) => (
               <label className="info light" key={index}>
                 {cat.toLowerCase()}
               </label>

@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.scss";
+import api from "@/services/";
 import banner from "@/assets/banner.png";
 import Places from "./components/Places";
 import BreadCrumbs from "@/components/BreadCrumbs";
 
-export default () => {
+export default (props) => {
+  const [movie, setMovie] = useState({});
+  const id = props.match.params.id;
+  useState(() => {
+    api(`filmebyId/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMovie(data);
+      });
+  }, []);
   return (
     <div id="place">
       <div id="banner" className="banner">
         <div className="title container-md ">
-          <h1>Blood Shot 2020</h1>
+          <h1>{movie.name}</h1>
           <p>Selecione o lugar</p>
         </div>
         <img src={banner} alt="" />
       </div>
       <div className="container-md">
-        <BreadCrumbs path="place"/>
+        <BreadCrumbs path="place" id={id} />
         <div className="body">
-          <Places />
+          <Places id={id} />
         </div>
       </div>
     </div>

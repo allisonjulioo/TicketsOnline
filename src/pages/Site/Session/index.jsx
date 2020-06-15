@@ -9,7 +9,22 @@ import "./styles.scss";
 
 export default (props) => {
   const [movie, setMovie] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [moviesBy, setMoviesBy] = useState([]);
   const id = props.match.params.id;
+  const history = useHistory();
+  const hours = ["11h45", "15h30", "18h00", "22h20"];
+  const cinemas = [
+    {
+      id: 1,
+      name: "cineart",
+      logo: require("@/assets/cineart.png"),
+      sections: ["11h45", "15h30", "18h00", "22h20"],
+    },
+  ];
+  const [selectedCinema, setSelectedCinema] = useState(cinemas[0]);
+  const [selectHour, setSelectHour] = useState(hours[0]);
+
   useState(() => {
     api(`filmebyId/${id}`)
       .then((res) => res.json())
@@ -20,27 +35,32 @@ export default (props) => {
   useState(() => {
     api(`getAllMovies`)
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then((datamv) => {
+        setMoviesBy(datamv);
       });
   }, []);
 
-  const history = useHistory();
-  const hours = ["11h45", "15h30", "18h00", "22h20"];
-  const cinemas = [
-    {
-      name: "cineart",
-      logo: require("@/assets/cineart.png"),
-      sections: ["11h45", "15h30", "18h00", "22h20"],
-    },
-    {
-      name: "cinepolis",
-      logo: require("@/assets/cinepolis.png"),
-      sections: ["15h30", "18h00"],
-    },
-  ];
-  const [selectedCinema, setSelectedCinema] = useState(cinemas[0].name);
-  const [selectHour, setSelectHour] = useState(hours[0]);
+  function nextStep() {
+    setLoading(true);
+    const session = {
+      userId: JSON.parse(localStorage.getItem("user")).cpf,
+      movieId: id,
+      cineId: selectedCinema.id.toString(),
+      date: selectHour.replace("h", ":"),
+    };
+    api(`addSessao`, {
+      method: "POST",
+      body: session,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("session", JSON.stringify(data));
+        setLoading(false);
+        history.push(`/movie/${id}/place`);
+        console.log(data);
+      });
+  }
+
   return (
     <div id="session">
       <div id="banner">
@@ -51,8 +71,8 @@ export default (props) => {
         <img src={movie.poster} alt="" />
       </div>
       <div className="body container-md">
-        <BreadCrumbs path="sections" />
-        <About poster={movie.poster} categories={movie.categoryList} />
+        <BreadCrumbs path="sections" id={id} />
+        <About movie={movie} />
         <div className="row">
           <div>
             <h4 className="title">SESSÕES</h4>
@@ -62,9 +82,9 @@ export default (props) => {
                   key={hr}
                   onClick={() => {
                     setSelectHour(hr);
-                    setSelectedCinema(cinemas[0].name);
+                    setSelectedCinema(cinemas[0]);
                   }}
-                  type={`${selectHour === hr ? "outline" : "light"} sm`}
+                  type={`${selectHour === hr ? "tertiary" : "light"} sm`}
                 >
                   {hr}
                 </Button>
@@ -80,9 +100,9 @@ export default (props) => {
                     <figure
                       key={cin.name}
                       className={`${
-                        selectedCinema === cin.name ? "active" : ""
+                        selectedCinema.name === cin.name ? "active" : ""
                       } selectCine`}
-                      onClick={() => setSelectedCinema(cin.name)}
+                      onClick={() => setSelectedCinema(cin)}
                     >
                       <img src={cin.logo} alt="" />
                     </figure>
@@ -101,13 +121,13 @@ export default (props) => {
           </p>
         </div>
         <div className="cta">
-          <Button type="primary" onClick={() => history.push(`/movie/1/place`)}>
+          <Button type="primary" onClick={() => nextStep()} disabled={loading}>
             ESCOLHER MEU LUGAR
           </Button>
         </div>
         <div className="others">
           <h4 className="title">OUTRO TÍTULOS</h4>
-          <MovieSlider desk={3}   />
+          <MovieSlider desk={3} banner={moviesBy} />
         </div>
       </div>
     </div>

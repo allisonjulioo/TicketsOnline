@@ -4,7 +4,11 @@ import Button from "@/components/Button";
 import "./styles.scss";
 import chairIcon from "@/assets/chair-icon.png";
 
-export default () => {
+export default ({ id }) => {
+  const [loading, setLoading] = useState(false);
+  const activePlaces = JSON.parse(localStorage.getItem("session")).userArmChair;
+  console.log(id);
+
   const history = useHistory();
   function selectChairs(chair) {
     const hasIncluded = selectedChairs.includes(chair);
@@ -56,6 +60,16 @@ export default () => {
       ["I6", "I7", "I8", "I9", "I10"],
     ].reverse(),
   ];
+  function nextStep() {
+    setLoading(true);
+    const session = {
+      ...JSON.parse(localStorage.getItem("session")),
+      chairs: selectedChairs,
+    };
+    localStorage.setItem("session", JSON.stringify(session));
+    setLoading(false);
+    history.push(`/movie/${id}/checkout`);
+  }
   return (
     <div id="places">
       {selectedChairs.length === 6 && (
@@ -66,11 +80,19 @@ export default () => {
           <Button
             type={`icon ${
               selectedChairs.includes(chair) ? "secondary" : "light"
-            } ${
+            } 
+            ${
               selectedChairs.length > 5 && !selectedChairs.includes(chair)
                 ? "fully"
                 : ""
-            }`}
+            }
+            ${
+              !activePlaces.map((act) => act.id).includes(chair)
+                ? "fully green"
+                : ""
+            }
+            
+            `}
             key={chair}
             onClick={() => selectChairs(chair)}
           >
@@ -95,7 +117,13 @@ export default () => {
                       !selectedChairs.includes(chair)
                         ? "fully"
                         : ""
-                    }`}
+                    }
+                    ${
+                      !activePlaces.map((act) => act.id).includes(chair)
+                        ? "fully green"
+                        : ""
+                    }
+                    `}
                     key={index}
                     onClick={() => selectChairs(chair, index)}
                   >
@@ -113,7 +141,8 @@ export default () => {
       <div className="screen">tela</div>
       <Button
         type="primary confirm"
-        onClick={() => history.push(`/movie/2/checkout`)}
+        onClick={() => nextStep()}
+        disabled={loading}
       >
         <p>CONFIRMAR LUGARES</p>
         <small>{selectedChairs.join(",  ")}</small>

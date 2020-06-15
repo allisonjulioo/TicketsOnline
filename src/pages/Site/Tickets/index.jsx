@@ -7,7 +7,8 @@ import Ticket from "./components/Ticket";
 import Button from "@/components/Button";
 import "./styles.scss";
 
-export default () => {
+export default (props) => {
+  const id = props.match.params.id;
   const history = useHistory();
   function printDiv(divName) {
     window.print();
@@ -22,7 +23,7 @@ export default () => {
         <img src={banner} alt="" />
       </div>
       <div className="container-md">
-        <BreadCrumbs path="ticket" />
+        <BreadCrumbs path="ticket" id={id}/>
         <div className="body">
           <h4>
             <FaCheck /> Compra realizada com sucesso

@@ -3,20 +3,25 @@ import { useHistory } from "react-router-dom";
 import * as FontAwesome from "react-icons/fa";
 import "./styles.scss";
 
-export default ({ path }) => {
+export default ({ path, id }) => {
   const history = useHistory();
   const breadcrumbs = [
     { url: "/main", name: "HOME", icon: "FaHome", path: "main" },
-    { url: "/movie/2", name: "SESSÕES", icon: "FaClock", path: "sections" },
-    { url: "/movie/1/place", name: "LUGARES", icon: "FaChair", path: "place" },
+    { url: `/movie/${id}`, name: "SESSÕES", icon: "FaClock", path: "sections" },
     {
-      url: "/movie/1/checkout",
+      url: `/movie/${id}/place`,
+      name: "LUGARES",
+      icon: "FaChair",
+      path: "place",
+    },
+    {
+      url: `/movie/${id}/checkout`,
       name: "CHECKOUT",
       icon: "FaCreditCard",
       path: "checkout",
     },
     {
-      url: "/movie/1/ticket",
+      url: `/movie/${id}/ticket`,
       name: "INGRESSO",
       icon: "FaTicketAlt",
       path: "ticket",

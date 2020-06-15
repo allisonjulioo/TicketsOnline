@@ -46,6 +46,17 @@
     }
   }
   &.green {
+    background: $green !important;
+    color: $white;
+    &:hover {
+      color: $white;
+      background: darken($green, 3%) !important;
+    }
+    &:active {
+      background: darken($green, 8%) !important;
+    }
+  }
+  &.green {
     background: $green;
     color: $white;
     &:hover {
