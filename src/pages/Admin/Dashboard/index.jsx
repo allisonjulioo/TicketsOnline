@@ -1,13 +1,44 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Chart } from "react-charts";
 import Button from "@/components/Button";
+import api from "@/services";
 import "./styles.scss";
 
 export default (props) => {
+  useEffect(() => {
+    getCountTransactions("site");
+    getCountTransactions("manual");
+  });
+
+  const [siteTransactions, setSiteTransactions] = useState(-1);
+  const [manualTransactions, setManualTransactions] = useState(-1);
+
+  async function getCountTransactions(metodo) {
+    await fetch("http://localhost:4567/countTransacoes", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        metodo,
+      }),
+    })
+    .then((res) => res.text())
+    .then((data) => {
+      if(metodo === "site") {setSiteTransactions(data)}
+      else {setManualTransactions(data)}
+    })
+    .catch(async (err) => {
+      console.log(err);
+    });
+  }
+
+
   const cards = [
-    { total: 100, label: "Vendas pelo site" },
-    { total: 200, label: "Vendas nas bilheterias" },
+    { total: siteTransactions === -1 ? '...' : siteTransactions, label: "Vendas pelo site" },
+    { total: manualTransactions === -1 ? '...' : manualTransactions, label: "Vendas nas bilheterias" },
     { total: 2, label: "Vendas cambistas" },
   ];
   const data = useMemo(
@@ -92,6 +123,9 @@ export default (props) => {
         </Link>
         <Link to="/admin/movie/new">
           <Button>Cadastrar filme</Button>
+        </Link>
+        <Link to="/admin/transaction/new">
+          <Button>Cadastrar transação manual</Button>
         </Link>
       </div>
     </div>

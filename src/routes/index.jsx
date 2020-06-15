@@ -16,6 +16,7 @@ import AuthRegister from "@/pages/Auth/Register";
 // admin
 import Dashboard from "../pages/Admin/Dashboard";
 import NewMovie from "../pages/Admin/NewMovie";
+import NewTransaction from "../pages/Admin/NewTransaction";
 
 const Routes = ({ history }) => {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ const Routes = ({ history }) => {
       <Route path="/auth/register" component={AuthRegister} />
       <Route path="/auth/login" component={AuthLogin} />
       <Route path="/admin/movie/new" component={NewMovie} />
+      <Route path="/admin/transaction/new" component={NewTransaction} />
       <Route path="/admin/dashboard" component={Dashboard} />
       <Redirect from="*" to="/main" />
     </Switch>
