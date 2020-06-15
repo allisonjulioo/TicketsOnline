@@ -26,7 +26,8 @@ export default (props) => {
   function checkout() {
     setLoading(true);
     const s = {
-      user_id: JSON.parse(localStorage.getItem("user")).cpf,
+      userId: JSON.parse(localStorage.getItem("user")).cpf,
+      sessaoId: JSON.parse(localStorage.getItem("session")).id,
       qtIngressos: chair.chairs.length,
       valorIngresso: 12,
       valorTotal: chair.chairs.length * 12,
