@@ -5,8 +5,8 @@
     @include flex-center;
   }
   .card {
-    padding: 1em;
-    margin: 1em;
+    padding: 2em;
+    margin: 2em;
     background: lighten($grey, 60%);
     box-shadow: 0 2px 7px 0px rgba($black, 0.4);
     color: $black;
@@ -15,6 +15,10 @@
     }
     &:last-child {
       margin-right: 0;
+    }
+    &.chart {
+      padding-bottom: 5em;
+      padding-left: 5em;
     }
   }
   .tab {
@@ -34,5 +38,19 @@
         background-color: #ccc;
       }
     }
+  }
+
+  .x-axis {
+    text-align: center;
+    margin-top: 30px;
+    position: absolute;
+    width: 90%;
+  }
+  .y-axis {
+    position: absolute;
+    left: 0;
+    margin-top: 130px;
+    text-align: left;
+    transform: rotate(-90deg);
   }
 }

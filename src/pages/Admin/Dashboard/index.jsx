@@ -7,73 +7,141 @@ import "./styles.scss";
 
 export default (props) => {
   useEffect(() => {
-    getCountTransactions("site");
-    getCountTransactions("manual");
-  });
+    getInfoTransactions("count", "site");
+    getInfoTransactions("count", "manual");
+    getInfoTransactions("total", "site");
+    getInfoTransactions("total", "manual");
+  }, []);
 
-  const [siteTransactions, setSiteTransactions] = useState(-1);
-  const [manualTransactions, setManualTransactions] = useState(-1);
+  const [countSiteTransactions, setCountSiteTransactions] = useState(-1);
+  const [countManualTransactions, setCountManualTransactions] = useState(-1);
+  const [totalSiteTransactions, setTotalSiteTransactions] = useState(-1);
+  const [totalManualTransactions, setTotalManualTransactions] = useState(-1);
 
-  async function getCountTransactions(metodo) {
-    await fetch("http://localhost:4567/countTransacoes", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        metodo,
-      }),
-    })
-    .then((res) => res.text())
-    .then((data) => {
-      if(metodo === "site") {setSiteTransactions(data)}
-      else {setManualTransactions(data)}
-    })
-    .catch(async (err) => {
-      console.log(err);
-    });
+  const [vendasBilheteria, setVendasBilheteria] = useState([]);
+  const [vendasSite, setVendasSite] = useState([]);
+
+  async function getInfoTransactions(method, filter) {
+    api(`countTransacoes/${method}/${filter}`)
+      .then((res) => res.text())
+      .then((data) => {
+        if (method === "count") {
+          if (filter === "site") {
+            setCountSiteTransactions(data);
+          } else {
+            setCountManualTransactions(data);
+          }
+        } else {
+          if (filter === "site") {
+            setTotalSiteTransactions(data);
+          } else {
+            setTotalManualTransactions(data);
+          }
+        }
+      })
+      .catch(async (err) => {
+        console.log(err);
+      });
+
+    api(`totalBySession`)
+      .then((res) => res.text())
+      .then((data) => {
+        buildGraphData(JSON.parse(data));
+      })
+      .catch(async (err) => {
+        console.log(err);
+      });
   }
 
+  function buildGraphData(data) {
+    let vendasBilheteria = [];
+    let vendasSite = [];
+
+    data.forEach((elem) => {
+      vendasBilheteria.push([parseInt(elem.sessaoId), elem.totalBilheteria]);
+      vendasSite.push([parseInt(elem.sessaoId), elem.totalSite]);
+    });
+
+    setVendasBilheteria([...vendasBilheteria]);
+    setVendasSite([...vendasSite]);
+  }
 
   const cards = [
-    { total: siteTransactions === -1 ? '...' : siteTransactions, label: "Vendas pelo site" },
-    { total: manualTransactions === -1 ? '...' : manualTransactions, label: "Vendas nas bilheterias" },
-    { total: 2, label: "Vendas cambistas" },
+    {
+      total: countSiteTransactions === -1 ? "..." : countSiteTransactions,
+      label: "Número de vendas pelo site",
+    },
+    {
+      total:
+        totalSiteTransactions === -1 ? "..." : "R$ " + totalSiteTransactions,
+      label: "Valor total de vendas pelo site",
+    },
+    {
+      total: countManualTransactions === -1 ? "..." : countManualTransactions,
+      label: "Vendas nas bilheterias",
+    },
+    {
+      total:
+        totalManualTransactions === -1
+          ? "..."
+          : "R$ " + totalManualTransactions,
+      label: "Valor total de vendas nas bilheterias",
+    },
   ];
+
   const data = useMemo(
     () => [
       {
-        label: "Series 1",
-        data: [
-          [0, 1],
-          [1, 2],
-          [2, 4],
-          [3, 2],
-          [4, 7],
-        ],
+        label: "Vendas na bilheteria (em R$)",
+        data: vendasBilheteria,
       },
       {
-        label: "Series 2",
-        data: [
-          [0, 3],
-          [1, 1],
-          [2, 5],
-          [3, 6],
-          [4, 4],
-        ],
+        label: "Vendas pelo site (em R$)",
+        data: vendasSite,
       },
     ],
-    []
+    [vendasBilheteria, vendasSite]
   );
 
   const axes = useMemo(
     () => [
-      { primary: true, type: "linear", position: "bottom" },
-      { type: "linear", position: "left" },
+      {
+        primary: true,
+        type: "ordinal",
+        position: "bottom",
+        show: data.length !== 0,
+      },
+      { type: "linear", position: "left", show: data.length !== 0 },
     ],
-    []
+    [data]
   );
+
+  function renderChart() {
+    if (vendasBilheteria.length === 0) {
+      return null;
+    }
+
+    return (
+      <div className="charts">
+        <div className="card chart">
+          <div>
+            <div className="y-axis">Valor de vendas por meio</div>
+            <Chart
+              data={data}
+              axes={axes}
+              tooltip
+              style={{
+                width: "400px",
+                height: "300px",
+              }}
+            />
+            <div className="x-axis">Sessão</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   function openCity(event, string) {
     console.log(event, string);
   }
@@ -88,10 +156,16 @@ export default (props) => {
           >
             London
           </button>
-          <button className="tablinks" onClick={(event) => openCity(event, "Paris")}>
+          <button
+            className="tablinks"
+            onClick={(event) => openCity(event, "Paris")}
+          >
             Paris
           </button>
-          <button className="tablinks" onClick={(event) => openCity(event, "Tokyo")}>
+          <button
+            className="tablinks"
+            onClick={(event) => openCity(event, "Tokyo")}
+          >
             Tokyo
           </button>
         </div>
@@ -103,21 +177,7 @@ export default (props) => {
             </div>
           ))}
         </div>
-        <div className="charts">
-          <div className="card">
-            <div>
-              <Chart
-                data={data}
-                axes={axes}
-                tooltip
-                style={{
-                  width: "400px",
-                  height: "300px",
-                }}
-              />
-            </div>
-          </div>
-        </div>
+        {renderChart()}
         <Link to="/">
           <Button>Voltar</Button>
         </Link>
