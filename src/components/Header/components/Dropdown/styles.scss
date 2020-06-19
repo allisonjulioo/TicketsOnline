@@ -1,5 +1,5 @@
 @import "@/styles/";
- 
+
 #dropdown {
   .user {
     position: relative;
@@ -93,6 +93,18 @@
     span {
       user-select: none;
       pointer-events: none;
+    }
+  }
+}
+.admin {
+  #dropdown {
+    .user {
+      .icon-button {
+        background: lighten($grey, 82%);
+      }
+      span {
+        color: lighten($grey, 8%);
+      }
     }
   }
 }

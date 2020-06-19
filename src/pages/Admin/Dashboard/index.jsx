@@ -5,9 +5,11 @@ import "./styles.scss";
 import Tabs from "../components/Tabs";
 
 export default (props) => {
+  const { cpf, password } = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     getCountTransactions("site");
     getCountTransactions("manual");
+    getDataChart();
   }, []);
 
   const [siteTransactions, setSiteTransactions] = useState(-1);
@@ -22,6 +24,17 @@ export default (props) => {
         } else {
           setManualTransactions(data);
         }
+      })
+      .catch((err) => {});
+  }
+  function getDataChart() {
+    api(`getDataRelatorios`, {
+      method: "POST",
+      body: { cpf, password },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
       })
       .catch((err) => {});
   }

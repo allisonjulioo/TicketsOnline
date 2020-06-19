@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputMask from "react-input-mask";
 import { useHistory, Link } from "react-router-dom";
 import api from "@/services";
 import "./styles.scss";
@@ -19,7 +20,14 @@ export default () => {
     event.preventDefault();
     api("addUsuario", {
       method: "POST",
-      body: { cpf, name, address, password, birth, sex },
+      body: {
+        cpf: cpf.split(".").join("").split("-").join(""),
+        name,
+        address,
+        password,
+        birth,
+        sex,
+      },
     })
       .then((res) => res.json())
       .then(async (data) => {
@@ -36,7 +44,7 @@ export default () => {
   async function loginAfterRegister({ cpf, password }) {
     api("login", {
       method: "POST",
-      body: { cpf, password },
+      body: { cpf: cpf.split(".").join("").split("-").join(""), password },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -69,10 +77,11 @@ export default () => {
         </label>
         <label>
           <p>CPF</p>
-          <input
+          <InputMask
             placeholder="Insira seu CPF"
-            type="number"
-            value={cpf}
+            type="text"
+            mask="999.999.999-99"
+            maskChar={null}
             onChange={(event) => setCPF(event.target.value)}
           />
         </label>
@@ -98,10 +107,11 @@ export default () => {
         </label>
         <label>
           <p>Data Nascimento</p>
-          <input
+          <InputMask
             placeholder="Insira sua Data de Nascimento"
             type="text"
-            value={birth}
+            mask="99/99/9999"
+            maskChar={null}
             onChange={(event) => setBirth(event.target.value)}
           />
         </label>

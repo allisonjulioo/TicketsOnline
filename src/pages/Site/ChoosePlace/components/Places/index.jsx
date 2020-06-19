@@ -76,7 +76,7 @@ export default ({ id }) => {
       <div className="row">
         {background.map((chair) => (
           <Button
-            type={`icon ${
+            type={`p-0  icon ${
               selectedChairs.includes(chair) ? "secondary" : "light"
             } 
             ${
@@ -108,7 +108,7 @@ export default ({ id }) => {
               <div className="row" key={row}>
                 {ranks.map((chair, index) => (
                   <Button
-                    type={`icon ${
+                    type={`p-0 icon ${
                       selectedChairs.includes(chair) ? "secondary" : "light"
                     } ${
                       selectedChairs.length > 5 &&

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputMask from "react-input-mask";
 import { Link } from "react-router-dom";
 import api from "@/services";
 import "./styles.scss";
@@ -16,7 +17,7 @@ export default () => {
     setLoading(true);
     api("login", {
       method: "POST",
-      body: { cpf, password },
+      body: { cpf: cpf.split(".").join("").split("-").join(""), password },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -28,7 +29,6 @@ export default () => {
       })
       .catch((err) => {
         setLoading(false);
-        history.push(`/main`);
       });
   }
 
@@ -41,9 +41,11 @@ export default () => {
       <form onSubmit={login}>
         <label>
           <p>CPF</p>
-          <input
-            type="number"
-            value={cpf}
+          <InputMask
+            placeholder="Insira seu CPF"
+            type="text"
+            mask="999.999.999-99"
+            maskChar={null}
             onChange={(event) => setCPF(event.target.value)}
           />
         </label>

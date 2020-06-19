@@ -31,6 +31,7 @@ export default () => {
   return (
     <div
       id="header"
+      style={{ backgroundColor: scrolled || isAdmin ? "black" : "transparent" }}
       className={(scrolled ? "scrolled" : "", isAdmin ? "admin" : "")}
     >
       <div
