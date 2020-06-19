@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./styles.scss";
 import Button from "@/components/Button";
+import Tabs from "../components/Tabs";
 
-export default () => {
+export default (props) => {
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
@@ -38,9 +39,10 @@ export default () => {
   }
 
   return (
-    <div id="movie-register">
-      <div className="header">
-        <h1>Cadastrar filme</h1>
+    <div id="movie-register" className="container p-2">
+    <h3>Cadastrar filme</h3>
+      <Tabs path={props.match.path} />
+      <div className="header"> 
         <p>
           Para cadastrar um novo filme precisamos que você informe as
           informações abaixo:

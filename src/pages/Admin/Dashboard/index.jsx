@@ -1,44 +1,41 @@
 import React, { useMemo, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Chart } from "react-charts";
-import Button from "@/components/Button";
 import api from "@/services";
 import "./styles.scss";
+import Tabs from "../components/Tabs";
 
 export default (props) => {
   useEffect(() => {
     getCountTransactions("site");
     getCountTransactions("manual");
-  });
+  }, []);
 
   const [siteTransactions, setSiteTransactions] = useState(-1);
   const [manualTransactions, setManualTransactions] = useState(-1);
 
-  async function getCountTransactions(metodo) {
-    await fetch("http://localhost:4567/countTransacoes", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        metodo,
-      }),
-    })
-    .then((res) => res.text())
-    .then((data) => {
-      if(metodo === "site") {setSiteTransactions(data)}
-      else {setManualTransactions(data)}
-    })
-    .catch(async (err) => {
-      console.log(err);
-    });
+  function getCountTransactions(method) {
+    api(`countTransacoes/count/${method}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (method === "site") {
+          setSiteTransactions(data);
+        } else {
+          setManualTransactions(data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-
-
   const cards = [
-    { total: siteTransactions === -1 ? '...' : siteTransactions, label: "Vendas pelo site" },
-    { total: manualTransactions === -1 ? '...' : manualTransactions, label: "Vendas nas bilheterias" },
+    {
+      total: siteTransactions === -1 ? "..." : siteTransactions,
+      label: "Vendas pelo site",
+    },
+    {
+      total: manualTransactions === -1 ? "..." : manualTransactions,
+      label: "Vendas nas bilheterias",
+    },
     { total: 2, label: "Vendas cambistas" },
   ];
   const data = useMemo(
@@ -74,27 +71,11 @@ export default (props) => {
     ],
     []
   );
-  function openCity(event, string) {
-    console.log(event, string);
-  }
   return (
-    <div id="dashboard" className="container" style={{ padding: "2em" }}>
+    <div id="dashboard" className="container p-2">
       <h3>Dashboard</h3>
       <div className="container">
-        <div className="tab">
-          <button
-            className="tablinks"
-            onClick={(event) => openCity(event, "London")}
-          >
-            London
-          </button>
-          <button className="tablinks" onClick={(event) => openCity(event, "Paris")}>
-            Paris
-          </button>
-          <button className="tablinks" onClick={(event) => openCity(event, "Tokyo")}>
-            Tokyo
-          </button>
-        </div>
+        <Tabs path={props.match.path} />
         <div className="card-list">
           {cards.map((card, index) => (
             <div className="card" key={index}>
@@ -118,15 +99,6 @@ export default (props) => {
             </div>
           </div>
         </div>
-        <Link to="/">
-          <Button>Voltar</Button>
-        </Link>
-        <Link to="/admin/movie/new">
-          <Button>Cadastrar filme</Button>
-        </Link>
-        <Link to="/admin/transaction/new">
-          <Button>Cadastrar transação manual</Button>
-        </Link>
       </div>
     </div>
   );

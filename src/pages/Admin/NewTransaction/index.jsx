@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import "./styles.scss";
+import { useHistory } from "react-router-dom";
+import api from "@/services";
 import Button from "@/components/Button";
-import { Redirect } from "react-router-dom";
+import "./styles.scss";
+import Tabs from "../components/Tabs";
 
-
-
-export default () => {
+export default (props) => {
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
-  const [completed, setCompleted] = useState(false);
   const [venda, setVenda] = useState("");
   const [sessao, setSessao] = useState("");
   const [qtdeIngressos, setQtdeIngressos] = useState("");
@@ -15,37 +15,28 @@ export default () => {
   async function register(event) {
     setLoading(true);
     event.preventDefault();
-    await fetch("http://localhost:4567/addManualTransaction", {
+    api("addManualTransaction", {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+      body: {
         venda,
         sessao,
-        qtdeIngressos
-      }),
+        qtdeIngressos,
+      },
     })
       .then(() => {
-        alert("Transação cadastrada com sucesso");
         setLoading(false);
-        setCompleted(true);
+        history.push("/admin/dashboard");
       })
       .catch((err) => {
-        alert("Erro ao cadastrar a transação!");
         setLoading(false);
       });
   }
 
-  if (completed === true) {
-    return <Redirect to="/admin/dashboard" />;
-  }
-
   return (
-    <div id="transaction-register">
+    <div id="transaction-register" className="container p-2">
+      <h3>Cadastrar transação</h3>
+      <Tabs path={props.match.path} />
       <div className="header">
-        <h1>Cadastrar transação</h1>
         <p>
           Para cadastrar uma transação manual, precisamos que você informe as
           informações abaixo:
@@ -59,21 +50,21 @@ export default () => {
             type="text"
             value={venda}
             onChange={(event) => setVenda(event.target.value)}
-            style={{color: 'black'}}
+            style={{ color: "black" }}
           />
           <input
             placeholder="Insira a sessão"
             type="text"
             value={sessao}
             onChange={(event) => setSessao(event.target.value)}
-            style={{color: 'black'}}
+            style={{ color: "black" }}
           />
           <input
             placeholder="Insira a quantidade de ingressos"
             type="text"
             value={qtdeIngressos}
             onChange={(event) => setQtdeIngressos(event.target.value)}
-            style={{color: 'black'}}
+            style={{ color: "black" }}
           />
         </label>
         <Button type="secondary" disabled={loading}>

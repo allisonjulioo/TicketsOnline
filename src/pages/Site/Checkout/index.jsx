@@ -49,7 +49,6 @@ export default (props) => {
       .then((res) => res.json())
       .then(
         (data) => {
-          console.log(data);
           setLoading(false);
           // history.push(`/movie/${id}/ticket`);
         },

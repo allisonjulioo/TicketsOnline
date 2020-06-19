@@ -3,6 +3,9 @@
 #dashboard {
   .card-list {
     @include flex-center;
+    @media (max-width: 981px) {
+      flex-direction: column;
+    }
   }
   .card {
     padding: 1em;
@@ -16,23 +19,12 @@
     &:last-child {
       margin-right: 0;
     }
-  }
-  .tab {
-    background: #fff;
-    margin: 1em 0;
-    button {
-      background-color: inherit;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      &:hover {
-        background-color: #ddd;
-      }
-      &.active {
-        background-color: #ccc;
-      }
+    @media (max-width: 981px) {
+      margin: .4em 0;
+      width: 100%;
     }
+  }
+  .charts{
+    overflow: hidden;
   }
 }

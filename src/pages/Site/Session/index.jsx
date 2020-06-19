@@ -57,7 +57,6 @@ export default (props) => {
         localStorage.setItem("session", JSON.stringify(data));
         setLoading(false);
         history.push(`/movie/${id}/place`);
-        console.log(data);
       });
   }
 
