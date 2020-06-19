@@ -1,19 +1,19 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { Chart } from "react-charts";
+import axios from "axios";
 import api from "@/services";
 import "./styles.scss";
 import Tabs from "../components/Tabs";
 
 export default (props) => {
+  const [siteTransactions, setSiteTransactions] = useState(-1);
+  const [manualTransactions, setManualTransactions] = useState(-1);
   const { cpf, password } = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     getCountTransactions("site");
     getCountTransactions("manual");
     getDataChart();
   }, []);
-
-  const [siteTransactions, setSiteTransactions] = useState(-1);
-  const [manualTransactions, setManualTransactions] = useState(-1);
 
   function getCountTransactions(method) {
     api(`countTransacoes/count/${method}`)
@@ -27,16 +27,18 @@ export default (props) => {
       })
       .catch((err) => {});
   }
-  function getDataChart() {
-    api(`getDataRelatorios`, {
-      method: "POST",
-      body: { cpf, password },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+  async function getDataChart() {
+    axios
+      .post("http://localhost:4567/getDataRelatorios", {
+        cpf,
+        password,
       })
-      .catch((err) => {});
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
   const cards = [
     {
@@ -47,29 +49,27 @@ export default (props) => {
       total: manualTransactions === -1 ? "..." : manualTransactions,
       label: "Vendas nas bilheterias",
     },
-    { total: 2, label: "Vendas cambistas" },
+    { total: 'R$ 3400', label: "Total de vendas" },
   ];
   const data = useMemo(
     () => [
       {
         label: "Fisico",
         data: [
-          [0, 1],
-          [1, 2],
-          [2, 4],
-          [3, 2],
-          [4, 7],
+          [20, 7],
+          [25, 10],
         ],
       },
-
       {
         label: "Online",
         data: [
-          [0, 2],
-          [1, 1],
-          [2, 5],
-          [3, 6],
-          [4, 4],
+          [18, 5],
+          [19, 4],
+          [19, 1],
+          [19, 1],
+          [19, 1],
+          [20, 2],
+          [25, 1],
         ],
       },
     ],
