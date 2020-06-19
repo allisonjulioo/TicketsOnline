@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bilheteria-online-frontend/static/css/main.18b39150.chunk.css",
-    "main.js": "/bilheteria-online-frontend/static/js/main.8268d86f.chunk.js",
-    "main.js.map": "/bilheteria-online-frontend/static/js/main.8268d86f.chunk.js.map",
+    "main.js": "/bilheteria-online-frontend/static/js/main.f3d29afe.chunk.js",
+    "main.js.map": "/bilheteria-online-frontend/static/js/main.f3d29afe.chunk.js.map",
     "runtime-main.js": "/bilheteria-online-frontend/static/js/runtime-main.404ee5c2.js",
     "runtime-main.js.map": "/bilheteria-online-frontend/static/js/runtime-main.404ee5c2.js.map",
     "static/css/2.8347cf0b.chunk.css": "/bilheteria-online-frontend/static/css/2.8347cf0b.chunk.css",
     "static/js/2.cf5cafaf.chunk.js": "/bilheteria-online-frontend/static/js/2.cf5cafaf.chunk.js",
     "static/js/2.cf5cafaf.chunk.js.map": "/bilheteria-online-frontend/static/js/2.cf5cafaf.chunk.js.map",
     "index.html": "/bilheteria-online-frontend/index.html",
-    "precache-manifest.d4e471ed2dd3f6acf79ad82f3c72c6b3.js": "/bilheteria-online-frontend/precache-manifest.d4e471ed2dd3f6acf79ad82f3c72c6b3.js",
+    "precache-manifest.b7c35528929022cbed2a838b520be1b5.js": "/bilheteria-online-frontend/precache-manifest.b7c35528929022cbed2a838b520be1b5.js",
     "service-worker.js": "/bilheteria-online-frontend/service-worker.js",
     "static/css/2.8347cf0b.chunk.css.map": "/bilheteria-online-frontend/static/css/2.8347cf0b.chunk.css.map",
     "static/css/main.18b39150.chunk.css.map": "/bilheteria-online-frontend/static/css/main.18b39150.chunk.css.map",
@@ -34,6 +34,6 @@
     "static/css/2.8347cf0b.chunk.css",
     "static/js/2.cf5cafaf.chunk.js",
     "static/css/main.18b39150.chunk.css",
-    "static/js/main.8268d86f.chunk.js"
+    "static/js/main.f3d29afe.chunk.js"
   ]
 }
