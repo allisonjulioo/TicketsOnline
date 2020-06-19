@@ -7,8 +7,6 @@ import chairIcon from "@/assets/chair-icon.png";
 export default ({ id }) => {
   const [loading, setLoading] = useState(false);
   const activePlaces = JSON.parse(localStorage.getItem("session")).userArmChair;
-  console.log(id);
-
   const history = useHistory();
   function selectChairs(chair) {
     const hasIncluded = selectedChairs.includes(chair);
@@ -143,6 +141,7 @@ export default ({ id }) => {
         type="primary confirm"
         onClick={() => nextStep()}
         disabled={loading}
+        blocked={selectedChairs.length < 1}
       >
         <p>CONFIRMAR LUGARES</p>
         <small>{selectedChairs.join(",  ")}</small>

@@ -8,7 +8,6 @@ export default ({ path }) => {
   useEffect(() => {
     setActive(path.split("/"));
   }, []);
-  console.log(active);
   const history = useHistory();
   function navigate(to) {
     history.push(to);
@@ -29,7 +28,9 @@ export default ({ path }) => {
           Cadastrar filme
         </button>
         <button
-          className={`${active.includes("transaction") ? "active" : ""} tablinks`}
+          className={`${
+            active.includes("transaction") ? "active" : ""
+          } tablinks`}
           onClick={() => navigate("/admin/transaction/new")}
         >
           Nova transação

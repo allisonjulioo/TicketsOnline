@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import api from "@/services";
 import MovieSlider from "@/components/MovieSlider";
@@ -9,18 +10,23 @@ import Categories from "./components/Categories";
 import "./styles.scss";
 
 export default () => {
+  const dispatch = useDispatch();
+  localStorage.removeItem("session");
+  localStorage.removeItem("tickets");
   const [banner, setBanner] = useState([
     { name: "Cinema", categoryList: ["ACAO"], poster: bn, id: 1 },
   ]);
   async function getAllMovies() {
+    dispatch(setLoading(true));
     await api("getAllMovies")
       .then((res) => res.json())
       .then(async (data) => {
         setBanner(data);
+        if (data.length) {
+          dispatch(setLoading(false));
+        }
       })
-      .catch(async (err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }
   useEffect(() => {
     getAllMovies();
@@ -45,4 +51,7 @@ export default () => {
       </div>
     </div>
   );
+};
+const setLoading = (isLoading) => {
+  return { type: "NOW_LOADING", isLoading };
 };

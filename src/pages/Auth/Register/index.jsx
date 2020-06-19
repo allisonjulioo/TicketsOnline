@@ -28,7 +28,6 @@ export default () => {
         }
       })
       .catch(async (err) => {
-        console.log(err);
         alert("Erro ao cadastrar");
         setLoading(false);
       });
@@ -40,16 +39,13 @@ export default () => {
       body: { cpf, password },
     })
       .then((res) => res.json())
-      .then(
-        (data) => {
-          if (data && data.userType) {
-            setLoading(false);
-            localStorage.setItem("user", JSON.stringify(data));
-            history.push(`/main`);
-          }
-        },
-        (result) => console.log(result)
-      );
+      .then((data) => {
+        if (data && data.userType) {
+          setLoading(false);
+          localStorage.setItem("user", JSON.stringify(data));
+          history.push(`/main`);
+        }
+      });
   }
 
   return (

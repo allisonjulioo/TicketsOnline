@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import api from "@/services/";
 import MovieSlider from "@/components/MovieSlider";
@@ -8,6 +9,7 @@ import About from "./components/About";
 import "./styles.scss";
 
 export default (props) => {
+  const dispatch = useDispatch();
   const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(false);
   const [moviesBy, setMoviesBy] = useState([]);
@@ -24,13 +26,19 @@ export default (props) => {
   ];
   const [selectedCinema, setSelectedCinema] = useState(cinemas[0]);
   const [selectHour, setSelectHour] = useState(hours[0]);
-
-  useState(() => {
-    api(`filmebyId/${id}`)
+  async function getMovie() {
+    dispatch(setLoadings(true));
+    await api(`filmebyId/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setMovie(data);
+        if (data) {
+          dispatch(setLoadings(false));
+        }
       });
+  }
+  useState(() => {
+    getMovie();
   }, []);
   useState(() => {
     api(`getAllMovies`)
@@ -54,7 +62,10 @@ export default (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        localStorage.setItem("session", JSON.stringify(data));
+        localStorage.setItem(
+          "session",
+          JSON.stringify({ ...data, ...movie, selectHour })
+        );
         setLoading(false);
         history.push(`/movie/${id}/place`);
       });
@@ -131,4 +142,7 @@ export default (props) => {
       </div>
     </div>
   );
+};
+const setLoadings = (isLoading) => {
+  return { type: "NOW_LOADING", isLoading };
 };

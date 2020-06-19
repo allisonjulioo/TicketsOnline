@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import CreditCard from "./components/CreditCard";
 import BreadCrumbs from "@/components/BreadCrumbs";
@@ -13,47 +13,49 @@ export default (props) => {
   const [nomeCartao, setName] = useState();
   const [validade, setValid] = useState();
   const [cvv, setSecurity] = useState();
-
+  const [chairs, setChairs] = useState([]);
+  const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
   const id = props.match.params.id;
-  const chair = JSON.parse(localStorage.getItem("session"));
   const history = useHistory();
 
-  function deleteTicket(index, chair) {
-    console.log(chair.chairs);
-    chair.chairs.splice(index, 1);
+  useEffect(() => {
+    setChairs(JSON.parse(localStorage.getItem("session")).chairs);
+    setMovie(JSON.parse(localStorage.getItem("session")));
+  }, []);
+
+  function deleteTicket(index, ch) {
+    if (chairs.length > 1) {
+      setChairs(chairs.filter((c) => c !== ch));
+    }
   }
   function checkout() {
     setLoading(true);
-    const s = {
+    const order = {
       userId: JSON.parse(localStorage.getItem("user")).cpf,
       sessaoId: JSON.parse(localStorage.getItem("session")).id,
-      qtIngressos: chair.chairs.length,
+      qtIngressos: chairs.length,
       valorIngresso: 12,
-      valorTotal: chair.chairs.length * 12,
-      chairs: chair.chairs.join(","),
+      valorTotal: chairs.length * 12,
+      chairs: chairs.join(","),
       numeroCartao,
       nomeCartao,
       validade,
       cvv,
     };
-    finishOrder(s);
+    finishOrder(order);
   }
   function finishOrder(session) {
-    console.log(session);
-
     api("transacao", {
       method: "POST",
       body: session,
     })
       .then((res) => res.json())
-      .then(
-        (data) => {
-          setLoading(false);
-          // history.push(`/movie/${id}/ticket`);
-        },
-        (result) => console.log(result)
-      )
+      .then((data) => {
+        localStorage.setItem("tickets", JSON.stringify(data));
+        setLoading(false);
+        history.push(`/movie/${id}/ticket`);
+      })
       .catch(() => setLoading(false));
   }
   function change(value) {
@@ -67,7 +69,7 @@ export default (props) => {
     <div id="checkout">
       <div id="banner" className="banner">
         <div className="title container-md ">
-          <h1>Blood Shot 2020</h1>
+          <h1>{movie.name}</h1>
           <p>Confirme seu pedido</p>
         </div>
         <img src={banner} alt="" />
@@ -77,11 +79,13 @@ export default (props) => {
         <div className="body">
           <h5>Ingressos</h5>
           <div className="content">
-            {chair.chairs.map((chair, index) => (
+            {chairs.map((chair, index) => (
               <Invoice
+                isDelete={chairs.length > 1}
                 index={index}
                 chair={chair}
                 key={index}
+                movie={movie}
                 deleteTicket={(index, chair) => deleteTicket(index, chair)}
               />
             ))}
@@ -94,8 +98,9 @@ export default (props) => {
           disabled={loading}
           type="primary confirm"
           onClick={() => checkout()}
+          blocked={chairs.length < 1 || !validade}
         >
-          PAGAR R$ {chair.chairs.length * 12},00
+          PAGAR R$ {chairs.length * 12},00
         </Button>
       </div>
     </div>

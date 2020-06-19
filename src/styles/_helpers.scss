@@ -45,6 +45,12 @@
 .text-danger {
   color: $tertiary;
 }
+.p-0 {
+  padding: 0 !important;
+}
 .p-2 {
   padding: 2em;
+}
+.uppercase {
+  text-transform: uppercase;
 }

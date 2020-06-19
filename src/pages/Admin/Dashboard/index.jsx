@@ -23,9 +23,7 @@ export default (props) => {
           setManualTransactions(data);
         }
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }
   const cards = [
     {
@@ -41,7 +39,7 @@ export default (props) => {
   const data = useMemo(
     () => [
       {
-        label: "Series 1",
+        label: "Fisico",
         data: [
           [0, 1],
           [1, 2],
@@ -50,10 +48,11 @@ export default (props) => {
           [4, 7],
         ],
       },
+
       {
-        label: "Series 2",
+        label: "Online",
         data: [
-          [0, 3],
+          [0, 2],
           [1, 1],
           [2, 5],
           [3, 6],

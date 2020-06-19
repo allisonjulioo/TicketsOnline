@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FaPrint, FaCheck } from "react-icons/fa";
 import banner from "@/assets/banner.png";
@@ -8,30 +8,37 @@ import Button from "@/components/Button";
 import "./styles.scss";
 
 export default (props) => {
+  const [movie, setMovie] = useState([]);
+  const order = JSON.parse(localStorage.getItem("tickets"));
   const id = props.match.params.id;
   const history = useHistory();
-  function printDiv(divName) {
+  function printDiv() {
     window.print();
   }
+  useEffect(() => {
+    setMovie(JSON.parse(localStorage.getItem("session")));
+  }, []);
+
   return (
     <div id="checkout" className="tickets">
       <div id="banner" className="banner">
         <div className="title container-md ">
-          <h1>Blood Shot 2020</h1>
+          <h1>{movie.name}</h1>
           <p>Retire seu ticket</p>
         </div>
         <img src={banner} alt="" />
       </div>
       <div className="container-md">
-        <BreadCrumbs path="ticket" id={id}/>
+        <BreadCrumbs path="ticket" id={id} />
         <div className="body">
           <h4>
             <FaCheck /> Compra realizada com sucesso
           </h4>
           <p>Imprima aqui sues ingressos</p>
           <div className="content" id="tickets">
-            <Ticket seat="A5" />
-            <Ticket seat="A6" />
+            {order.cadeirascompradas.map((seat, index) => (
+              <Ticket order={order} seat={seat} key={index} movie={movie} />
+            ))}
           </div>
         </div>
         <Button type="light  " onClick={() => history.push("/main")}>

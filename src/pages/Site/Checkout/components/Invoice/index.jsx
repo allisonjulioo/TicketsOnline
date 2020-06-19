@@ -3,15 +3,17 @@ import { FaTrash } from "react-icons/fa";
 import Button from "@/components/Button";
 import "./styles.scss";
 
-export default ({ chair, index, deleteTicket }) => {
+export default ({ chair, index, deleteTicket, isDelete, movie }) => {
   return (
     <div id="invoice">
-      <div className="title">1º Bloodshot</div>
+      <div className="title">
+        {index + 1}º {movie.name}
+      </div>
       <ul className="details">
         <li className="item">
           <small>Sessão</small>
           <Button type="light sm">
-            31/05/2020 <br /> 22H20
+            {movie.selectHour} <br /> {movie.selectHour}
           </Button>
         </li>
         <li className="item">
@@ -32,19 +34,23 @@ export default ({ chair, index, deleteTicket }) => {
         <li className="item">
           <small>Entrada</small>
           <div className="row">
-            <Button type="secondary sm">Meia</Button>
-            <Button type="light sm">Inteira</Button>
+            <Button type="light sm" blocked={true}>
+              Meia
+            </Button>
+            <Button type="secondary sm">Inteira</Button>
           </div>
         </li>
       </ul>
-      <div className="subtotal">Subtotal R$ 30,00</div>
-      <Button
-        type="icon"
-        title="Excluir ingresso"
-        onClick={() => deleteTicket(index, chair)}
-      >
-        <FaTrash size={12} color="#505050" />
-      </Button>
+      <div className="subtotal">Subtotal R$ 12,00</div>
+      {isDelete && (
+        <Button
+          type="icon p-0"
+          title="Excluir ingresso"
+          onClick={() => deleteTicket(index, chair)}
+        >
+          <FaTrash size={12} color="#505050" />
+        </Button>
+      )}
     </div>
   );
 };
