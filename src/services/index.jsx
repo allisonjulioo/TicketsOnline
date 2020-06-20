@@ -1,6 +1,6 @@
 export default async (endpoint, options) => {
   if (options) { 
-    return await fetch(`http://localhost:4567/${endpoint}`, {
+    return await fetch(`https://bilheteria-online.herokuapp.com/${endpoint}`, {
       method: options.method,
       headers: {
         Accept: "application/json",
@@ -14,7 +14,7 @@ export default async (endpoint, options) => {
       )
       .catch((err) => err);
   } else {
-    return await fetch(`http://localhost:4567/${endpoint}`)
+    return await fetch(`https://bilheteria-online.herokuapp.com/${endpoint}`)
       .then(
         (data) => data,
         (reject) => reject

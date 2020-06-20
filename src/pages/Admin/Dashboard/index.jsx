@@ -30,7 +30,7 @@ export default (props) => {
   }
   async function getDataChart() {
     axios
-      .post("http://localhost:4567/getDataRelatorios", {
+      .post("https://bilheteria-online.herokuapp.com/getDataRelatorios", {
         cpf,
         password,
       })
