@@ -10,6 +10,7 @@ form {
   label {
     color: $grey;
   }
+  input,
   input[type="text"],
   input[type="password"],
   input[type="email"],
@@ -22,11 +23,9 @@ form {
     border: none;
     padding: 1em;
     background: rgba($grey, 0.01);
-    border: 1px solid rgba($grey, 0.1);
+    border: 1px solid;
+    border-color: $grey;
     color: $white;
-    &:not([value=""]) {
-      border-color: $grey;
-    }
     &:focus {
       background: rgba($white, 0.2);
       &::placeholder {
@@ -62,6 +61,9 @@ form {
   }
   form {
     background: transparent;
+    input {
+      color: $black;
+    }
   }
   .header h1 {
     margin: 1em 0;

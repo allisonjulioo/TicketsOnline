@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import InputMask from "react-input-mask";
 import "./styles.scss";
+import api from "@/services";
 import Button from "@/components/Button";
 import Tabs from "../components/Tabs";
 
@@ -13,20 +15,16 @@ export default (props) => {
   async function register(event) {
     setLoading(true);
     event.preventDefault();
-    await fetch("http://localhost:4567/addFilme", {
+    await api("addFilme", {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+      body: {
         cpf: JSON.parse(localStorage.getItem("user")).cpf,
         password: JSON.parse(localStorage.getItem("user")).password,
         title,
         year,
         releaseData,
         finalDate,
-      }),
+      },
     })
       .then(() => {
         alert("Filme cadastrado com sucesso");
@@ -40,9 +38,9 @@ export default (props) => {
 
   return (
     <div id="movie-register" className="container p-2">
-    <h3>Cadastrar filme</h3>
+      <h3>Cadastrar filme</h3>
       <Tabs path={props.match.path} />
-      <div className="header"> 
+      <div className="header">
         <p>
           Para cadastrar um novo filme precisamos que você informe as
           informações abaixo:
@@ -60,30 +58,31 @@ export default (props) => {
         </label>
         <label>
           <p>Ano</p>
-          <input
+          <InputMask
             placeholder="Ano do filme"
-            type="number"
-            value={year}
+            type="text"
+            mask="9999"
+            maskChar={null}
             onChange={(event) => setYear(event.target.value)}
           />
         </label>
         <label>
           <p>Data de estreia</p>
-          <input
+          <InputMask
             placeholder="Data de incio da sessão"
-            type="date"
-            value={releaseData}
+            type="text"
+            mask="99/99/9999"
+            maskChar={null}
             onChange={(event) => setReleaseData(event.target.value)}
-            name=""
-            id=""
           />
         </label>
         <label>
           <p>Data final de exibição</p>
-          <input
+          <InputMask
             placeholder="Insira a data final para exibição"
-            type="date"
-            value={finalDate}
+            type="text"
+            mask="99/99/9999"
+            maskChar={null}
             onChange={(event) => setFinalDate(event.target.value)}
           />
         </label>
