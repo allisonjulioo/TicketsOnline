@@ -24,7 +24,7 @@ npm install -g create-react-app
 
 - Clone o projeto
 ```
-git clone git@github.com:germano-carlos/bilheteria-online-frontend.git
+git clone git@github.com:allisonjulioo/bilheteria-online-frontend.git
 ```
 - Depois de clonar o projeto e instalar o nodejs e o yarn, entre na pasta do projeto e rode o comando
 ```
