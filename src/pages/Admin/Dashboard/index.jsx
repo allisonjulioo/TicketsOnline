@@ -6,6 +6,7 @@ import "./styles.scss";
 import Tabs from "../components/Tabs";
 
 export default (props) => {
+  const [series, setSeries] = useState([]);
   const [siteTransactions, setSiteTransactions] = useState(-1);
   const [manualTransactions, setManualTransactions] = useState(-1);
   const { cpf, password } = JSON.parse(localStorage.getItem("user"));
@@ -34,7 +35,13 @@ export default (props) => {
         password,
       })
       .then((response) => {
-        console.log(response.data);
+        response.data.data.filter((res) =>
+          res.data.filter((date) => {
+            date[0] = new Date(date[0]).getDay();
+          })
+        );
+        console.log(response.data.data);
+        setSeries(response.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -49,33 +56,8 @@ export default (props) => {
       total: manualTransactions === -1 ? "..." : manualTransactions,
       label: "Vendas nas bilheterias",
     },
-    { total: 'R$ 3400', label: "Total de vendas" },
+    { total: "R$ 3400", label: "Total de vendas" },
   ];
-  const data = useMemo(
-    () => [
-      {
-        label: "Fisico",
-        data: [
-          [20, 7],
-          [25, 10],
-        ],
-      },
-      {
-        label: "Online",
-        data: [
-          [18, 5],
-          [19, 4],
-          [19, 1],
-          [19, 1],
-          [19, 1],
-          [20, 2],
-          [25, 1],
-        ],
-      },
-    ],
-    []
-  );
-
   const axes = useMemo(
     () => [
       { primary: true, type: "linear", position: "bottom" },
@@ -100,7 +82,7 @@ export default (props) => {
           <div className="card">
             <div>
               <Chart
-                data={data}
+                data={series}
                 axes={axes}
                 tooltip
                 style={{

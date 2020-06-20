@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import api from "@/services";
@@ -10,6 +11,7 @@ import Categories from "./components/Categories";
 import "./styles.scss";
 
 export default () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   localStorage.removeItem("session");
   localStorage.removeItem("tickets");
@@ -28,8 +30,27 @@ export default () => {
       })
       .catch((err) => {});
   }
+  async function checkIfLogged() {
+    if (!localStorage.getItem("user")) {
+      api("login", {
+        method: "POST",
+        body: { cpf: 99999999999, password: 123 },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.userType) {
+            localStorage.setItem("user", JSON.stringify(data));
+            history.push(`/main`);
+          }
+        })
+        .catch((err) => {
+          setLoading(false);
+        });
+    }
+  }
   useEffect(() => {
     getAllMovies();
+    checkIfLogged();
   }, []);
   return (
     <div id="home">

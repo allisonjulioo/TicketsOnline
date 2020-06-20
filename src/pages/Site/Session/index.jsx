@@ -62,9 +62,15 @@ export default (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data, movie);
         localStorage.setItem(
           "session",
-          JSON.stringify({ ...data, ...movie, selectHour })
+          JSON.stringify({
+            ...data,
+            movieId: movie.id,
+            name: movie.name,
+            selectHour,
+          })
         );
         setLoading(false);
         history.push(`/movie/${id}/place`);

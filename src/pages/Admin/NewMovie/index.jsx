@@ -13,6 +13,11 @@ export default (props) => {
   const [finalDate, setFinalDate] = useState("");
 
   async function register(event) {
+    console.log(
+      releaseData.split("/").reverse().join("-"),
+      finalDate.split("/").reverse().join("-")
+    );
+
     setLoading(true);
     event.preventDefault();
     await api("addFilme", {
@@ -22,8 +27,8 @@ export default (props) => {
         password: JSON.parse(localStorage.getItem("user")).password,
         title,
         year,
-        releaseData,
-        finalDate,
+        releaseData: releaseData.split("/").reverse().join("-"),
+        finalDate: finalDate.split("/").reverse().join("-"),
       },
     })
       .then(() => {

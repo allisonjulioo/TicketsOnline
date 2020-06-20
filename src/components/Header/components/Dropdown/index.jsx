@@ -7,6 +7,13 @@ export default ({ user }) => {
   const history = useHistory();
   const [open, setOpen] = useState(false);
   const classes = ["user", "nav-item", "items", "menu-item"];
+
+  function getName(us) {
+    if (us.name.split(" ").length > 1) {
+      return us.name.split(" ")[0] + " " + us.name.split(" ")[1];
+    }
+    return us.name.split(" ")[0];
+  }
   useEffect(() => {
     const click = (e) => {
       if (!classes.includes(e.target.className)) {
@@ -18,6 +25,7 @@ export default ({ user }) => {
       window.removeEventListener("click", click);
     };
   }, [classes]);
+
   return (
     <div id="dropdown">
       <div
@@ -28,7 +36,7 @@ export default ({ user }) => {
           <span className="icon-button">
             <FaUser />
           </span>
-          <span>{user.name.split(" ")[0] + " " + user.name.split(" ")[1]}</span>
+          <span>{getName(user)}</span>
           {open && (
             <div className="dropdown">
               <ul className="items">
