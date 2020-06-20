@@ -15,4 +15,9 @@
 
   img {
   }
+  @media (max-width: 981px) {
+    img {
+      width: 70%;
+    }
+  }
 }
