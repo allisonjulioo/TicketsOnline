@@ -68,6 +68,7 @@ export default (props) => {
           JSON.stringify({
             ...data,
             movieId: movie.id,
+            poster: movie.poster,
             name: movie.name,
             selectHour,
           })

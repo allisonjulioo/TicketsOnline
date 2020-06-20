@@ -7,7 +7,7 @@ export default ({ path }) => {
 
   useEffect(() => {
     setActive(path.split("/"));
-  }, []);
+  }, [path]);
   const history = useHistory();
   function navigate(to) {
     history.push(to);

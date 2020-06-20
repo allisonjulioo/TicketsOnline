@@ -14,7 +14,7 @@ export default (props) => {
     getCountTransactions("site");
     getCountTransactions("manual");
     getDataChart();
-  }, []);
+  },[]);
 
   function getCountTransactions(method) {
     api(`countTransacoes/count/${method}`)
@@ -37,7 +37,7 @@ export default (props) => {
       .then((response) => {
         response.data.data.filter((res) =>
           res.data.filter((date) => {
-            date[0] = new Date(date[0]).getDay();
+            return date[0] = new Date(date[0]).getDay();
           })
         );
         console.log(response.data.data);

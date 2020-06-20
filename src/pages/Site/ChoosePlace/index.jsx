@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./styles.scss";
 import api from "@/services/";
-import banner from "@/assets/banner.png";
 import Places from "./components/Places";
 import BreadCrumbs from "@/components/BreadCrumbs";
 
@@ -22,7 +21,7 @@ export default (props) => {
           <h1>{movie.name}</h1>
           <p>Selecione o lugar</p>
         </div>
-        <img src={banner} alt="" />
+        <img src={movie.poster} alt="" />
       </div>
       <div className="container-md">
         <BreadCrumbs path="place" id={id} />

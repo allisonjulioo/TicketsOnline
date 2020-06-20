@@ -5,7 +5,6 @@ import BreadCrumbs from "@/components/BreadCrumbs";
 import api from "@/services/";
 import Button from "@/components/Button";
 import "./styles.scss";
-import banner from "@/assets/banner.png";
 import Invoice from "./components/Invoice";
 
 export default (props) => {
@@ -14,7 +13,7 @@ export default (props) => {
   const [validade, setValid] = useState();
   const [cvv, setSecurity] = useState();
   const [chairs, setChairs] = useState([]);
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(false);
   const id = props.match.params.id;
   const history = useHistory();
@@ -72,7 +71,7 @@ export default (props) => {
           <h1>{movie.name}</h1>
           <p>Confirme seu pedido</p>
         </div>
-        <img src={banner} alt="" />
+        <img src={movie.poster} alt="" />
       </div>
       <div className="container-md">
         <BreadCrumbs path="checkout" id={id} />

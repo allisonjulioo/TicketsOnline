@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FaPrint, FaCheck } from "react-icons/fa";
-import banner from "@/assets/banner.png";
 import BreadCrumbs from "@/components/BreadCrumbs";
 import Ticket from "./components/Ticket";
 import Button from "@/components/Button";
@@ -26,7 +25,7 @@ export default (props) => {
           <h1>{movie.name}</h1>
           <p>Retire seu ticket</p>
         </div>
-        <img src={banner} alt="" />
+        <img src={movie.poster} alt="" />
       </div>
       <div className="container-md">
         <BreadCrumbs path="ticket" id={id} />
