@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Carousel } from "react-responsive-carousel";
-import api from "@/services";
 import MovieSlider from "@/components/MovieSlider";
 import SideMenu from "@/components/SideMenu";
+import api from "@/services";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Carousel } from "react-responsive-carousel";
+import { useHistory } from "react-router-dom";
 import Banner from "./components/Banner";
-import bn from "@/assets/cinema.jpg";
 import Categories from "./components/Categories";
 import "./styles.scss";
 
@@ -15,9 +14,7 @@ export default () => {
   const dispatch = useDispatch();
   localStorage.removeItem("session");
   localStorage.removeItem("tickets");
-  const [banner, setBanner] = useState([
-    { name: "Cinema", categoryList: ["ACAO"], poster: bn, id: 1 },
-  ]);
+  const [banner, setBanner] = useState([]);
   async function getAllMovies() {
     dispatch(setLoading(true));
     await api("getAllMovies")

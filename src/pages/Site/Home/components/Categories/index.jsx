@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import MovieSlider from "@/components/MovieSlider";
+import React, { useState } from "react";
 import "./styles.scss";
 
 export default ({ movies }) => {
@@ -7,15 +7,13 @@ export default ({ movies }) => {
   const concat = [].concat.apply([], [...arr]);
   const categories = concat.filter((item, pos) => concat.indexOf(item) === pos);
   const [active, setActive] = useState(categories[0]);
-  const [moviesBy, setMoviesBy] = useState([]);
-
+  const [moviesBy, setMoviesBy] = useState(
+    movies.filter((mv) => mv.categoryList.includes(categories[0]))
+  );
   useState(() => {
-    if (movies && movies.length) {
-      setActive("ACAO");
-      setMoviesBy(movies.filter((mv) => mv.categoryList.includes("ACAO")));
-    }
+    activeCategory("ACAO");
   }, [movies]);
-  function activeCategory(cat) {
+  async function activeCategory(cat) {
     setMoviesBy(movies.filter((mv) => mv.categoryList.includes(cat)));
     setActive(cat);
   }
@@ -25,7 +23,7 @@ export default ({ movies }) => {
         {categories.map((cat, index) => (
           <li
             onClick={() => activeCategory(cat)}
-            className={active === cat ? "active" : ""}
+            className={String(active) === String(cat) ? "active" : ""}
             key={index}
           >
             {cat}
