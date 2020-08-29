@@ -1,5 +1,5 @@
 {
-  "name": "bilheteria-online-frontend",
+  "name": "tickets-online",
   "description": "Venda de ingressos para cinema online",
   "version": "0.1.0",
   "private": true,
@@ -26,7 +26,7 @@
     "redux-devtools": "^3.5.0",
     "redux-logger": "^3.0.6"
   },
-  "homepage": "https://allisonjulioo.github.io/bilheteria-online-frontend/",
+  "homepage": "https://allisonjulioo.github.io/TicketsOnline/",
   "scripts": {
     "start": "craco start",
     "build": "craco build",

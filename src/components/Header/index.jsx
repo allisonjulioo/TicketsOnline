@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import logoLight from "@/assets/logo-light.png";
-import Button from "@/components/Button";
-import UserDropdown from "./components/Dropdown";
-import "./styles.scss";
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import logoLight from '@/assets/logo-light.png';
+import Button from '@/components/Button';
+import UserDropdown from './components/Dropdown';
+import './styles.scss';
 
 export default () => {
   const isAdmin = useSelector((state) => state.isAdmin);
@@ -12,7 +12,7 @@ export default () => {
 
   const history = useHistory();
   const [scrolled, setScrolled] = useState();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem('user'));
   const logged = !!user && user.name;
 
   useEffect(() => {
@@ -23,42 +23,42 @@ export default () => {
         setScrolled(false);
       }
     };
-    window.addEventListener("scroll", handleScroll, true);
+    window.addEventListener('scroll', handleScroll, true);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   return (
     <div
-      id="header"
-      style={{ backgroundColor: scrolled || isAdmin ? "black" : "transparent" }}
-      className={(scrolled ? "scrolled" : "", isAdmin ? "admin" : "")}
+      id='header'
+      style={{ backgroundColor: scrolled || isAdmin ? 'black' : 'transparent' }}
+      className={(scrolled ? 'scrolled' : '', isAdmin ? 'admin' : '')}
     >
       <div
-        className="branding"
-        style={{ opacity: scrolled || isAdmin ? "1" : "0" }}
+        className='branding'
+        style={{ opacity: scrolled || isAdmin ? '1' : '0' }}
         onClick={() => history.push(`/main`)}
       >
         {isAdmin && (
           <img
             src={logoLight}
-            alt="Bilheteria"
-            className="admin-branding"
-            height="40"
+            alt='Tickets'
+            className='admin-branding'
+            height='40'
           />
         )}
-        {scrolled && <img src={logoLight} alt="Bilheteria" height="40" />}
+        {scrolled && <img src={logoLight} alt='Tickets' height='40' />}
       </div>
       {!logged && (
-        <section className="actions">
+        <section className='actions'>
           <Button
-            type={`${isAdmin ? "primary" : "outline"} sm`}
+            type={`${isAdmin ? 'primary' : 'outline'} sm`}
             onClick={() => history.push(`/auth/login`)}
           >
             Entrar
           </Button>
           <Button
-            type="secondary sm"
+            type='secondary sm'
             onClick={() => history.push(`/auth/register`)}
           >
             Cadastrar
