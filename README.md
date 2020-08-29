@@ -2,7 +2,7 @@
 
 Front end da aplicação
 
-[Veja em produção](https://allisonjulioo.github.io/tickets-online-frontend/)
+[Veja em produção](https://allisonjulioo.github.io/TicketsOnline/)
 
 ## Instalações minimas para rodar projetos em node
 
